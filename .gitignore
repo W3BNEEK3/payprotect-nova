@@ -1,0 +1,17 @@
+harmony1_novar_DB.sql
+
+# Ignore database files and credentials
+*.db
+*.sql
+/config/database.php
+/config/db.php
+/config.php
+
+# Ignore vendor directory
+/vendor
+/node_modules
+
+# Ignore logs and temp files
+/logs
+/tmp
+.DS_Store

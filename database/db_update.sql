@@ -1,0 +1,2 @@
+-- SQL updates for admin tools (virtual cards, codes, etc.)
+-- ALTER TABLE users ADD COLUMN ...;
