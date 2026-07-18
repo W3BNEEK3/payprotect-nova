@@ -1,4 +1,5 @@
 harmony1_novar_DB.sql
+.env
 
 # Ignore database files and credentials
 *.db
@@ -15,3 +16,12 @@ harmony1_novar_DB.sql
 /logs
 /tmp
 .DS_Store
+
+# Ignore notes and scripts
+BEHAVIOR_NOTES.md
+RESTORE_PROCEDURE.md
+scratch_update.py
+SECURITY_NOTES.md
+parse_and_create_migrations.py
+CONTRIBUTING.md
+create_db.php

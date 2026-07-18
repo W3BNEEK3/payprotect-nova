@@ -1,20 +1,12 @@
 <?php
-$host = 'localhost';
-$db   = 'harmony1_novar_DB'; // this must match what you see in phpMyAdmin
-$user = 'harmony1_novar_DB';
-$pass = 'Fatu8aMt2NFmtEeR8QRa';
-$charset = 'utf8mb4';
+/**
+ * database/db.php — kept only because the ~60 existing flat files in admin/ and
+ * user/ still `require` it directly and expect a $conn variable. New code should
+ * use App\Core\Database::connection() instead. This file is retired entirely once
+ * every flat file has been migrated into a Controller (tracked per-phase; see
+ * Implementation Plan P19.4 for final cleanup).
+ */
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+require_once __DIR__ . '/../bootstrap/app.php';
 
-try {
-     $conn = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-     die('Connection failed:' . $e->getMessage());
-}
-?>
+$conn = \App\Core\Database::connection();

@@ -1,19 +1,23 @@
 <?php
-$host = 'localhost';
-$db   = 'harmony1_novar_DB'; // your database name
-$user = 'harmony1_novar_DB';
-$pass = 'Fatu8aMt2NFmtEeR8QRa'; // or your MySQL password if you set one
-$charset = 'utf8mb4';
+require_once __DIR__ . '/../bootstrap/env.php';
+loadEnv(__DIR__ . '/../.env');
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$host    = env('DB_HOST');
+$db      = env('DB_NAME');
+$user    = env('DB_USER');
+$pass    = env('DB_PASS');
+$charset = env('DB_CHARSET', 'utf8mb4');
+
+$dsn = "mysql:host={$host};dbname={$db};charset={$charset}";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
 try {
     $conn = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+    die('Connection failed: ' . $e->getMessage());
 }
 ?>

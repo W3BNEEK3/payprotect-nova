@@ -1,0 +1,2 @@
+[2026-07-18 12:05:38] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31
+[2026-07-18 12:05:55] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31

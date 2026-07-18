@@ -6,22 +6,82 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
 {
+    public static $files = array (
+        'ea45cb24dcd98a7af4e3faa91ad94286' => __DIR__ . '/../..' . '/bootstrap/helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'D' =>
+        array (
+            'Database\\Seeders\\' => 17,
+        ),
+        'A' =>
+        array (
+            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PHPMailer\\PHPMailer\\' => 
+        'PHPMailer\\PHPMailer\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'Database\\Seeders\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/database/seeders',
+        ),
+        'App\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
     public static $classMap = array (
+        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/Controllers/BaseController.php',
+        'App\\Controllers\\SmokeTestController' => __DIR__ . '/../..' . '/app/Controllers/SmokeTestController.php',
+        'App\\Core\\App' => __DIR__ . '/../..' . '/app/Core/App.php',
+        'App\\Core\\Database' => __DIR__ . '/../..' . '/app/Core/Database.php',
+        'App\\Core\\EnvLoader' => __DIR__ . '/../..' . '/app/Core/EnvLoader.php',
+        'App\\Core\\ErrorHandler' => __DIR__ . '/../..' . '/app/Core/ErrorHandler.php',
+        'App\\Core\\Logger' => __DIR__ . '/../..' . '/app/Core/Logger.php',
+        'App\\Core\\MigrationRunner' => __DIR__ . '/../..' . '/app/Core/MigrationRunner.php',
+        'App\\Core\\Model' => __DIR__ . '/../..' . '/app/Core/Model.php',
+        'App\\Core\\Request' => __DIR__ . '/../..' . '/app/Core/Request.php',
+        'App\\Core\\Response' => __DIR__ . '/../..' . '/app/Core/Response.php',
+        'App\\Core\\Router' => __DIR__ . '/../..' . '/app/Core/Router.php',
+        'App\\Core\\SeedRunner' => __DIR__ . '/../..' . '/app/Core/SeedRunner.php',
+        'App\\Core\\Session' => __DIR__ . '/../..' . '/app/Core/Session.php',
+        'App\\Exceptions\\AppException' => __DIR__ . '/../..' . '/app/Exceptions/AppException.php',
+        'App\\Exceptions\\AuthException' => __DIR__ . '/../..' . '/app/Exceptions/AuthException.php',
+        'App\\Exceptions\\ComplianceException' => __DIR__ . '/../..' . '/app/Exceptions/ComplianceException.php',
+        'App\\Exceptions\\InsufficientFundsException' => __DIR__ . '/../..' . '/app/Exceptions/InsufficientFundsException.php',
+        'App\\Exceptions\\NotFoundException' => __DIR__ . '/../..' . '/app/Exceptions/NotFoundException.php',
+        'App\\Exceptions\\ProviderException' => __DIR__ . '/../..' . '/app/Exceptions/ProviderException.php',
+        'App\\Exceptions\\StorageException' => __DIR__ . '/../..' . '/app/Exceptions/StorageException.php',
+        'App\\Exceptions\\ValidationException' => __DIR__ . '/../..' . '/app/Exceptions/ValidationException.php',
+        'App\\Helpers\\Money' => __DIR__ . '/../..' . '/app/Helpers/Money.php',
+        'App\\Interfaces\\CardIssuerInterface' => __DIR__ . '/../..' . '/app/Interfaces/CardIssuerInterface.php',
+        'App\\Interfaces\\ChatTransportInterface' => __DIR__ . '/../..' . '/app/Interfaces/ChatTransportInterface.php',
+        'App\\Interfaces\\LoggerInterface' => __DIR__ . '/../..' . '/app/Interfaces/LoggerInterface.php',
+        'App\\Interfaces\\MailProviderInterface' => __DIR__ . '/../..' . '/app/Interfaces/MailProviderInterface.php',
+        'App\\Interfaces\\MiddlewareInterface' => __DIR__ . '/../..' . '/app/Interfaces/MiddlewareInterface.php',
+        'App\\Interfaces\\RepositoryInterface' => __DIR__ . '/../..' . '/app/Interfaces/RepositoryInterface.php',
+        'App\\Middlewares\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Middlewares/AdminMiddleware.php',
+        'App\\Middlewares\\AuthMiddleware' => __DIR__ . '/../..' . '/app/Middlewares/AuthMiddleware.php',
+        'App\\Middlewares\\CsrfMiddleware' => __DIR__ . '/../..' . '/app/Middlewares/CsrfMiddleware.php',
+        'App\\Middlewares\\GuestMiddleware' => __DIR__ . '/../..' . '/app/Middlewares/GuestMiddleware.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
