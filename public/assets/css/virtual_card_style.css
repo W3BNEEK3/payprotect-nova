@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.card-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.virtual-card {
+    background: linear-gradient(135deg, #00264d, #005792);
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.chip {
+    width: 40px;
+    height: auto;
+}
+
+.card-details {
+    margin-top: 20px;
+}
+
+.card-row {
+    margin-bottom: 15px;
+}
+
+.card-row label {
+    font-size: 0.75rem;
+    display: block;
+    color: #ccc;
+}
+
+.card-row.bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-reason {
+    text-align: left;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-reason h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-reason ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.card-reason ul li {
+    padding: 5px 0;
+    color: #444;
+}
+
+.btn-request {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}

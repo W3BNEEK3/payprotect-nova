@@ -25,3 +25,12 @@ SECURITY_NOTES.md
 parse_and_create_migrations.py
 CONTRIBUTING.md
 create_db.php
+parse_and_create_phase3.py
+parse_and_create_phase4.py
+parse_and_create_phase5.py
+parse_and_create_phase6.py
+remove_tidio.py
+functional_test.php
+about.php
+blog-post.php
+blog.php

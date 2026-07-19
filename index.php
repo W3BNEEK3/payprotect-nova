@@ -370,7 +370,6 @@
     });
     </script>
     <!-- End FAQ Section -->
-    <script src="//code.tidio.co/egy2jj6ihpe6ltp2760itz5shteyzupk.js" async></script>
     <!-- Footer -->
     <?php include 'footer.php'; ?>
 

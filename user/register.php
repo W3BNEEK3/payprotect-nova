@@ -112,6 +112,5 @@
       <p>Already have an account? <a href="login.php">Login</a></p>
     </div>
   </div>
- <script src="//code.tidio.co/egy2jj6ihpe6ltp2760itz5shteyzupk.js" async></script>
 </body>
 </html>

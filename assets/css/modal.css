@@ -1,0 +1,150 @@
+/**
+ * NovaTrust Confirmation Modal
+ * Source: novatrust-design-system.md Section 3
+ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 31, 58, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  z-index: 1000;
+  animation: overlayIn var(--duration-base) var(--ease-out);
+}
+
+/* Critical: `display: flex` above otherwise defeats the browser's default
+   [hidden] { display: none } rule, since a class selector wins over the UA
+   stylesheet's attribute selector. Without this, a "hidden" modal still
+   renders as a full-viewport flex container and silently intercepts every
+   click on the page underneath it — caught by automated testing, not by
+   eye, since visually nothing looks wrong (the overlay is transparent and
+   sits behind content) even though it's blocking every click. */
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-overlay.leaving {
+  animation: overlayOut var(--duration-fast) var(--ease-in) forwards;
+}
+
+.modal-dialog {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: var(--space-6);
+  animation: dialogIn var(--duration-base) var(--ease-out);
+}
+
+.modal-overlay.leaving .modal-dialog {
+  animation: dialogOut var(--duration-fast) var(--ease-in) forwards;
+}
+
+@keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes overlayOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes dialogIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes dialogOut {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to   { opacity: 0; transform: scale(0.96) translateY(8px); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.modal-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.modal-icon-badge .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.modal-icon-badge.tier-success   { background: var(--color-success-100); color: var(--color-success); }
+.modal-icon-badge.tier-caution   { background: var(--color-warning-100); color: var(--color-warning); }
+.modal-icon-badge.tier-destructive { background: var(--color-danger-100); color: var(--color-danger); }
+.modal-icon-badge.tier-primary   { background: var(--color-teal-100); color: var(--color-teal); }
+
+.modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--slate-500);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.modal-close:hover {
+  background: var(--color-paper);
+  color: var(--slate-900);
+}
+
+.modal-title {
+  font: 600 var(--type-heading-md-size)/var(--type-heading-md-lh) var(--font-display);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.modal-body {
+  font: 400 var(--type-body-lg-size)/var(--type-body-lg-lh) var(--font-body);
+  color: var(--slate-700);
+  margin: 0 0 var(--space-6) 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* Mobile: anchor to the bottom of the viewport as a sheet */
+@media (max-width: 640px) {
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal-dialog {
+    max-width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: var(--space-6) var(--space-4) calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+    animation: sheetIn var(--duration-base) var(--ease-out);
+  }
+  .modal-overlay.leaving .modal-dialog {
+    animation: sheetOut var(--duration-fast) var(--ease-in) forwards;
+  }
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+  .modal-actions .btn {
+    width: 100%;
+  }
+
+  @keyframes sheetIn {
+    from { opacity: 0; transform: translateY(100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes sheetOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(100%); }
+  }
+}

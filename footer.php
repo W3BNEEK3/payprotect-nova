@@ -1,4 +1,3 @@
-<script src="//code.tidio.co/qp9l90ajcrfdgztr6oydtvtt6qldij7e.js" async></script>
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-col">

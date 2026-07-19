@@ -1,0 +1,173 @@
+/**
+ * NovaTrust Tables
+ * Source: novatrust-design-system.md Section 7
+ *
+ * Convention: every <td> that should label itself on mobile needs a
+ * data-label="Column Name" attribute. Amount/reference/ID columns should
+ * carry class="type-data-md".
+ */
+
+.table-container {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--slate-300);
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font: 600 var(--type-caption-size)/var(--type-caption-lh) var(--font-body);
+  letter-spacing: 0.02em;
+  color: var(--slate-500);
+  text-transform: uppercase;
+  cursor: default;
+  user-select: none;
+}
+
+.data-table thead th.sortable {
+  cursor: pointer;
+}
+.data-table thead th.sortable .sort-icon {
+  font-size: 14px;
+  vertical-align: middle;
+  margin-left: var(--space-1);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.data-table thead th.sortable:hover .sort-icon,
+.data-table thead th.sortable.active-sort .sort-icon {
+  opacity: 1;
+}
+
+.data-table tbody td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--slate-100);
+  font: 400 var(--type-body-md-size)/var(--type-body-md-lh) var(--font-body);
+  color: var(--slate-900);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr {
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.data-table tbody tr:hover {
+  background: var(--color-paper);
+}
+
+.data-table tbody tr.clickable {
+  cursor: pointer;
+}
+.data-table tbody tr.clickable .row-chevron {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.data-table tbody tr.clickable:hover .row-chevron {
+  transform: translateX(2px);
+}
+
+.data-table .type-data-md {
+  font: 500 var(--type-data-md-size)/var(--type-data-md-lh) var(--font-data);
+  font-feature-settings: "tnum" 1;
+}
+
+@keyframes rowArrive {
+  from { opacity: 0; transform: translateY(-8px); background-color: var(--color-teal-100); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.data-table tr.row-arriving {
+  animation: rowArrive var(--duration-base) var(--ease-out);
+}
+.data-table tr.row-settling {
+  transition: background-color 1200ms ease-out;
+}
+
+@keyframes skeletonShimmer {
+  from { background-position: -200px 0; }
+  to   { background-position: 200px 0; }
+}
+.data-table .skeleton-cell {
+  height: 14px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--slate-100) 0%, #e4e7eb 50%, var(--slate-100) 100%);
+  background-size: 200px 100%;
+  animation: skeletonShimmer 1.4s linear infinite;
+}
+
+.table-empty-state {
+  padding: var(--space-16) var(--space-4);
+  text-align: center;
+}
+.table-empty-state .material-symbols-outlined {
+  font-size: 40px;
+  color: var(--slate-300);
+  margin-bottom: var(--space-3);
+}
+.table-empty-state p {
+  color: var(--slate-500);
+  font: 400 var(--type-body-lg-size)/var(--type-body-lg-lh) var(--font-body);
+  margin: 0 0 var(--space-4) 0;
+}
+
+@media (max-width: 720px) {
+  .table-container {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  table.data-table thead {
+    display: none;
+  }
+  table.data-table, .data-table tbody, .data-table tr, .data-table td {
+    display: block;
+    width: 100%;
+  }
+  .data-table tr {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-3);
+    padding: var(--space-4);
+  }
+  .data-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--slate-100);
+  }
+  .data-table td:last-child {
+    border-bottom: none;
+  }
+  .data-table td::before {
+    content: attr(data-label);
+    font: 500 var(--type-caption-size)/1 var(--font-body);
+    color: var(--slate-500);
+  }
+
+  .data-table td.primary-cell {
+    padding-top: 0;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--slate-300);
+    margin-bottom: var(--space-2);
+  }
+  .data-table td.primary-cell::before {
+    display: none;
+  }
+  .data-table td.primary-cell .type-data-md {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

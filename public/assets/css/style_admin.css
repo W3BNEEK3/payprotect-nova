@@ -1,0 +1,63 @@
+
+body.admin-auth-body, body.admin-dashboard {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fa;
+}
+.admin-auth-container {
+    width: 350px;
+    margin: 100px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+.admin-auth-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: maroon;
+}
+.admin-auth-container input[type="email"],
+.admin-auth-container input[type="password"],
+.admin-auth-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.admin-auth-container button {
+    background: maroon;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.admin-auth-container button:hover {
+    background: darkred;
+}
+
+.dashboard-container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+.dash-button {
+    display: inline-block;
+    margin: 15px 10px;
+    padding: 15px 25px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.dash-button.logout {
+    background-color: #555;
+}
+.dash-button:hover {
+    background-color: darkred;
+}

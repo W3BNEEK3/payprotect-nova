@@ -68,7 +68,6 @@ function toggleMenu() {
     nav.classList.toggle('open');
 }
 </script>
-<script src="//code.tidio.co/egy2jj6ihpe6ltp2760itz5shteyzupk.js" async></script>
 <?php include 'footer.php'; ?>
 
 </body>

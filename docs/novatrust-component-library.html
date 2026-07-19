@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTrust — Component Library</title>
+
+<!-- P5.1: Google Fonts + Material Symbols -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+<link rel="stylesheet" href="assets/css/design-tokens.css">
+<link rel="stylesheet" href="assets/css/buttons.css">
+<link rel="stylesheet" href="assets/css/modal.css">
+<link rel="stylesheet" href="assets/css/toast.css">
+<link rel="stylesheet" href="assets/css/forms.css">
+<link rel="stylesheet" href="assets/css/tables.css">
+<link rel="stylesheet" href="assets/css/status-pill.css">
+<link rel="stylesheet" href="assets/css/chart.css">
+
+<style>
+  .material-symbols-outlined, .material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+  }
+  .showcase-section {
+    max-width: 1040px;
+    margin: 0 auto var(--space-16);
+    padding: 0 var(--space-6);
+  }
+  .showcase-section h2 {
+    font: 600 var(--type-heading-lg-size)/var(--type-heading-lg-lh) var(--font-display);
+    margin-bottom: var(--space-2);
+  }
+  .showcase-section .section-desc {
+    color: var(--slate-700);
+    margin-bottom: var(--space-6);
+    max-width: 640px;
+  }
+  .showcase-row {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: var(--space-6);
+  }
+  .showcase-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-6);
+  }
+  .showcase-hero {
+    background: var(--color-ink);
+    color: #fff;
+    padding: var(--space-16) var(--space-6) var(--space-12);
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .showcase-hero h1 {
+    color: #fff;
+    font: 600 var(--type-display-lg-size)/var(--type-display-lg-lh) var(--font-display);
+    margin-bottom: var(--space-3);
+  }
+  .showcase-hero p {
+    color: var(--slate-300);
+    font: 400 var(--type-body-lg-size)/var(--type-body-lg-lh) var(--font-body);
+  }
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-3);
+  }
+  .swatch {
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    font: 500 var(--type-caption-size)/var(--type-caption-lh) var(--font-body);
+  }
+  .swatch-name { display: block; font-family: var(--font-data); margin-top: var(--space-2); }
+  .type-sample-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--slate-100);
+    flex-wrap: wrap;
+  }
+  .type-sample-label {
+    width: 140px;
+    flex-shrink: 0;
+    font: 500 var(--type-caption-size)/var(--type-caption-lh) var(--font-data);
+    color: var(--slate-500);
+  }
+  @media (max-width: 480px) {
+    .type-sample-row .type-display-xl,
+    .type-sample-row .type-display-lg {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="showcase-hero">
+  <h1>NovaTrust Design System</h1>
+  <p>Phase 5 component library — every token, component, and pattern from the design system, assembled for visual QA (P5.11).</p>
+</div>
+
+<!-- ============ COLOR TOKENS ============ -->
+<section class="showcase-section">
+  <h2>Color</h2>
+  <p class="section-desc">Section 1.1 — every semantic color token.</p>
+  <div class="swatch-grid">
+    <div class="swatch" style="background:var(--color-ink); color:#fff;">Ink<span class="swatch-name">#0B1F3A</span></div>
+    <div class="swatch" style="background:var(--color-teal); color:#fff;">Teal<span class="swatch-name">#0E7C7B</span></div>
+    <div class="swatch" style="background:var(--color-teal-100); color:var(--color-ink);">Teal 100<span class="swatch-name">#E3F2F1</span></div>
+    <div class="swatch" style="background:var(--color-success); color:#fff;">Success<span class="swatch-name">#1B8A5A</span></div>
+    <div class="swatch" style="background:var(--color-warning); color:#fff;">Warning<span class="swatch-name">#B7791F</span></div>
+    <div class="swatch" style="background:var(--color-danger); color:#fff;">Danger<span class="swatch-name">#C0392B</span></div>
+    <div class="swatch" style="background:var(--slate-900); color:#fff;">Slate 900<span class="swatch-name">#111827</span></div>
+    <div class="swatch" style="background:var(--slate-300); color:var(--color-ink);">Slate 300<span class="swatch-name">#D1D5DB</span></div>
+    <div class="swatch" style="background:var(--color-paper); color:var(--color-ink); border:1px solid var(--slate-300);">Paper<span class="swatch-name">#F7F8FA</span></div>
+    <div class="swatch" style="background:var(--color-surface); color:var(--color-ink); border:1px solid var(--slate-300);">Surface<span class="swatch-name">#FFFFFF</span></div>
+  </div>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section class="showcase-section">
+  <h2>Typography</h2>
+  <p class="section-desc">Section 1.2 — two typefaces for prose, one for data. Every number that means something uses <code>--font-data</code> with tabular figures.</p>
+  <div class="showcase-card">
+    <div class="type-sample-row"><span class="type-sample-label">display-xl</span><span class="type-display-xl">Precise, calm competence</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">display-lg</span><span class="type-display-lg">Built for real money</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">heading-lg</span><span class="type-heading-lg">Dashboard Overview</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">heading-md</span><span class="type-heading-md">Recent Transactions</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">body-lg</span><span class="type-body-lg">Your available balance is ready to withdraw.</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">body-md</span><span class="type-body-md">Secondary UI text, table cells, and captions.</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">data-lg</span><span class="type-data-lg">$48,204.17</span></div>
+    <div class="type-sample-row"><span class="type-sample-label">data-md</span><span class="type-data-md">TXN-2026-0091823</span></div>
+  </div>
+</section>
+
+<!-- ============ BUTTONS ============ -->
+<section class="showcase-section">
+  <h2>Buttons — Action Weight Scale</h2>
+  <p class="section-desc">Section 2 — five severity tiers plus Ghost. Color alone should signal severity before the label is read.</p>
+  <div class="showcase-row">
+    <button class="btn btn-primary"><span class="material-symbols-outlined">arrow_forward</span>Continue</button>
+    <button class="btn btn-secondary">Save Draft</button>
+    <button class="btn btn-success"><span class="material-symbols-outlined">check</span>Approve Withdrawal</button>
+    <button class="btn btn-caution">Reject Withdrawal</button>
+    <button class="btn btn-destructive">Permanently Block Card</button>
+    <button class="btn btn-ghost">Learn more</button>
+    <button class="btn btn-primary" disabled>Disabled</button>
+  </div>
+  <div class="showcase-row">
+    <button class="btn btn-primary btn-sm">Small Primary</button>
+    <button class="btn btn-secondary btn-sm">Small Secondary</button>
+  </div>
+</section>
+
+<!-- ============ STATUS PILLS ============ -->
+<section class="showcase-section">
+  <h2>Status Pills</h2>
+  <div class="showcase-row">
+    <span class="status-pill status-pill-success"><span class="material-symbols-outlined">check_circle</span>Completed</span>
+    <span class="status-pill status-pill-warning"><span class="material-symbols-outlined">schedule</span>Pending Review</span>
+    <span class="status-pill status-pill-danger"><span class="material-symbols-outlined">cancel</span>Rejected</span>
+    <span class="status-pill status-pill-info"><span class="material-symbols-outlined">sync</span>Processing</span>
+    <span class="status-pill status-pill-neutral"><span class="material-symbols-outlined">draft</span>Draft</span>
+  </div>
+</section>
+
+<!-- ============ MODAL TRIGGERS ============ -->
+<section class="showcase-section">
+  <h2>Confirmation Modal</h2>
+  <p class="section-desc">Section 3 — replaces window.confirm everywhere. Try each tier; Escape and backdrop click both resolve to Cancel.</p>
+  <div class="showcase-row">
+    <button class="btn btn-destructive" id="triggerDestructive">Block Card…</button>
+    <button class="btn btn-caution" id="triggerCaution">Reject Withdrawal…</button>
+    <button class="btn btn-success" id="triggerSuccess">Approve Card…</button>
+  </div>
+</section>
+
+<!-- ============ TOASTS ============ -->
+<section class="showcase-section">
+  <h2>Toasts</h2>
+  <p class="section-desc">Section 4 — max 3 visible, newest on top. Error toasts require manual dismissal.</p>
+  <div class="showcase-row">
+    <button class="btn btn-secondary" id="toastSuccess">Show Success</button>
+    <button class="btn btn-secondary" id="toastInfo">Show Info</button>
+    <button class="btn btn-secondary" id="toastWarning">Show Warning</button>
+    <button class="btn btn-secondary" id="toastError">Show Error</button>
+    <button class="btn btn-ghost" id="toastFlood">Show 5 at once (tests stacking limit)</button>
+  </div>
+</section>
+
+<!-- ============ FORMS ============ -->
+<section class="showcase-section">
+  <h2>Forms</h2>
+  <p class="section-desc">Section 6 — blur-first validation, live re-validate after first error, shake + focus first invalid on submit.</p>
+
+  <div class="grid-2">
+    <div class="showcase-card">
+      <h3 class="type-heading-sm" style="margin-bottom:var(--space-4);">Contact Form (validation test)</h3>
+      <form id="demoForm" novalidate>
+        <div class="field-group">
+          <label class="field-label" for="f-email">Email address</label>
+          <input class="input" type="text" id="f-email" name="email" placeholder="you@example.com">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="f-phone">Phone number</label>
+          <input class="input input-data" type="text" id="f-phone" name="phone" placeholder="555 123 4567">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="f-password">Password</label>
+          <div class="input-password-wrap">
+            <input class="input" type="password" id="f-password" name="password" placeholder="At least 8 characters">
+            <button type="button" class="password-toggle" aria-label="Show password">
+              <span class="material-symbols-outlined">visibility</span>
+            </button>
+          </div>
+          <div class="password-strength-track"><div class="password-strength-fill"></div></div>
+          <div class="password-strength-label"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit (try it empty first)</button>
+      </form>
+    </div>
+
+    <div class="showcase-card">
+      <h3 class="type-heading-sm" style="margin-bottom:var(--space-4);">Withdrawal Amount (live balance check)</h3>
+      <div class="field-group">
+        <label class="field-label" for="f-amount">Amount to withdraw</label>
+        <div class="input-amount-wrap">
+          <span class="input-amount-prefix">$</span>
+          <input class="input" type="text" id="f-amount" placeholder="0.00">
+        </div>
+        <p class="field-hint">Available balance: $1,250.00 — try entering more.</p>
+      </div>
+
+      <h3 class="type-heading-sm" style="margin: var(--space-6) 0 var(--space-4);">Compliance Code</h3>
+      <div class="otp-group" id="otpGroup">
+        <input class="otp-box" maxlength="1" inputmode="text">
+        <input class="otp-box" maxlength="1" inputmode="text">
+        <input class="otp-box" maxlength="1" inputmode="text">
+        <input class="otp-box" maxlength="1" inputmode="text">
+        <input class="otp-box" maxlength="1" inputmode="text">
+        <input class="otp-box" maxlength="1" inputmode="text">
+      </div>
+
+      <h3 class="type-heading-sm" style="margin: var(--space-6) 0 var(--space-4);">Crypto Address</h3>
+      <div class="crypto-address" data-full-address="0x71C7656EC7ab88b098defB751B7401B5f6d8976">
+        0x71C7…6F3E
+        <button class="copy-btn" aria-label="Copy address"><span class="material-symbols-outlined">content_copy</span></button>
+      </div>
+
+      <h3 class="type-heading-sm" style="margin: var(--space-6) 0 var(--space-4);">Withdrawal Method</h3>
+      <div class="method-option selected">
+        <span class="material-symbols-outlined">account_balance</span>
+        <span class="method-option-label">Bank Transfer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABLE ============ -->
+<section class="showcase-section">
+  <h2>Table — Recent Transactions</h2>
+  <p class="section-desc">Section 7 — resize your viewport below 720px to see it restructure into stacked cards.</p>
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="sortable active-sort">Date <span class="material-symbols-outlined sort-icon">arrow_downward</span></th>
+          <th>Description</th>
+          <th>Reference</th>
+          <th>Status</th>
+          <th class="sortable">Amount <span class="material-symbols-outlined sort-icon">arrow_downward</span></th>
+        </tr>
+      </thead>
+      <tbody id="txnTableBody">
+        <tr>
+          <td data-label="Date" class="primary-cell">Jul 18, 2026</td>
+          <td data-label="Description">Withdrawal — Bank Transfer</td>
+          <td data-label="Reference" class="type-data-md">TXN-2026-0091823</td>
+          <td data-label="Status"><span class="status-pill status-pill-warning"><span class="material-symbols-outlined">schedule</span>Pending Review</span></td>
+          <td data-label="Amount" class="type-data-md">-$500.00</td>
+        </tr>
+        <tr>
+          <td data-label="Date" class="primary-cell">Jul 17, 2026</td>
+          <td data-label="Description">Credit — Admin Transfer</td>
+          <td data-label="Reference" class="type-data-md">TXN-2026-0091801</td>
+          <td data-label="Status"><span class="status-pill status-pill-success"><span class="material-symbols-outlined">check_circle</span>Completed</span></td>
+          <td data-label="Amount" class="type-data-md">+$2,000.00</td>
+        </tr>
+        <tr>
+          <td data-label="Date" class="primary-cell">Jul 15, 2026</td>
+          <td data-label="Description">Withdrawal — Crypto (BTC)</td>
+          <td data-label="Reference" class="type-data-md">TXN-2026-0091755</td>
+          <td data-label="Status"><span class="status-pill status-pill-danger"><span class="material-symbols-outlined">cancel</span>Rejected</span></td>
+          <td data-label="Amount" class="type-data-md">-$750.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="showcase-row" style="margin-top:var(--space-4);">
+    <button class="btn btn-secondary btn-sm" id="addLiveRow">Simulate a live row arriving</button>
+  </div>
+</section>
+
+<!-- ============ EMPTY STATE ============ -->
+<section class="showcase-section">
+  <h2>Empty State</h2>
+  <div class="table-container">
+    <div class="table-empty-state">
+      <span class="material-symbols-outlined">receipt_long</span>
+      <p>No transactions yet.</p>
+      <button class="btn btn-primary">Make your first withdrawal</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKELETON LOADING ============ -->
+<section class="showcase-section">
+  <h2>Skeleton Loading State</h2>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Date</th><th>Description</th><th>Reference</th><th>Status</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td><div class="skeleton-cell" style="width:80px;"></div></td><td><div class="skeleton-cell" style="width:160px;"></div></td><td><div class="skeleton-cell" style="width:120px;"></div></td><td><div class="skeleton-cell" style="width:90px;"></div></td><td><div class="skeleton-cell" style="width:70px;"></div></td></tr>
+        <tr><td><div class="skeleton-cell" style="width:80px;"></div></td><td><div class="skeleton-cell" style="width:140px;"></div></td><td><div class="skeleton-cell" style="width:120px;"></div></td><td><div class="skeleton-cell" style="width:90px;"></div></td><td><div class="skeleton-cell" style="width:70px;"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CHARTS ============ -->
+<section class="showcase-section">
+  <h2>Charts</h2>
+  <p class="section-desc">Section 8 — minimal line/bar, no 3D or gradients. Hover a point or bar.</p>
+  <div class="grid-2">
+    <div class="chart-container">
+      <div class="chart-header">
+        <span class="chart-title">Transaction Volume</span>
+        <div class="chart-legend"><span class="chart-legend-item"><span class="chart-legend-swatch" style="background:var(--color-teal);"></span>This week</span></div>
+      </div>
+      <div id="lineChart"></div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-header">
+        <span class="chart-title">Compliance — Cleared vs Flagged</span>
+      </div>
+      <div id="barChart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal shell — included once per layout -->
+<div class="modal-overlay" id="novaModalOverlay" hidden>
+  <div class="modal-dialog" role="alertdialog" aria-modal="true" aria-labelledby="novaModalTitle" aria-describedby="novaModalBody">
+    <div class="modal-header">
+      <div class="modal-icon-badge" id="novaModalIconBadge">
+        <span class="material-symbols-outlined" id="novaModalIcon">help</span>
+      </div>
+      <button type="button" class="modal-close" id="novaModalClose" aria-label="Close">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <h2 class="modal-title" id="novaModalTitle"></h2>
+    <p class="modal-body" id="novaModalBody"></p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" id="novaModalCancel">Cancel</button>
+      <button type="button" class="btn btn-primary" id="novaModalConfirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/modules/modal.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/modules/validation.js"></script>
+<script src="assets/js/modules/field-handlers.js"></script>
+<script src="assets/js/modules/chart.js"></script>
+<script>
+  document.getElementById('triggerDestructive').onclick = () => {
+    NovaModal.confirm({
+      tier: 'destructive', icon: 'warning',
+      title: 'Block this card?',
+      body: "The cardholder won't be able to use it for any transaction. This can be reversed by re-approving a new card, but the blocked card number is permanently retired.",
+      confirmLabel: 'Block Card',
+    }).then((confirmed) => { if (confirmed) NovaToast.success('Card blocked'); });
+  };
+  document.getElementById('triggerCaution').onclick = () => {
+    NovaModal.confirm({
+      tier: 'caution', icon: 'undo',
+      title: 'Reject this withdrawal?',
+      body: 'The user will be notified and can submit a new request. Their balance is not affected.',
+      confirmLabel: 'Reject Withdrawal',
+    }).then((confirmed) => { if (confirmed) NovaToast.success('Withdrawal rejected'); });
+  };
+  document.getElementById('triggerSuccess').onclick = () => {
+    NovaModal.confirm({
+      tier: 'success', icon: 'check_circle',
+      title: 'Approve this virtual card?',
+      body: 'The cardholder will be notified and can start using the card immediately.',
+      confirmLabel: 'Approve Card',
+    }).then((confirmed) => { if (confirmed) NovaToast.success('Card approved'); });
+  };
+
+  document.getElementById('toastSuccess').onclick = () => NovaToast.success('Card blocked');
+  document.getElementById('toastInfo').onclick = () => NovaToast.info('New message from support');
+  document.getElementById('toastWarning').onclick = () => NovaToast.warning('Your session will expire in 5 minutes');
+  document.getElementById('toastError').onclick = () => NovaToast.error('Something went wrong. Please try again.');
+  document.getElementById('toastFlood').onclick = () => {
+    ['One', 'Two', 'Three', 'Four', 'Five'].forEach((n, i) => {
+      setTimeout(() => NovaToast.info('Toast number ' + n), i * 80);
+    });
+  };
+
+  // Form validation demo
+  const form = document.getElementById('demoForm');
+  new NovaValidation.FormValidator(form, {
+    email: (v) => NovaFieldHandlers.Validators.email(v),
+    phone: (v) => NovaFieldHandlers.Validators.phone(v),
+    password: (v) => NovaFieldHandlers.Validators.passwordMinimum(v),
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    NovaToast.success('Message sent');
+  });
+  NovaFieldHandlers.initPasswordField(document.querySelector('.input-password-wrap'));
+
+  // Amount live balance warning
+  NovaFieldHandlers.wireAmountLiveWarning(document.getElementById('f-amount'), () => 1250.00);
+
+  // OTP group
+  NovaFieldHandlers.initOtpGroup(document.getElementById('otpGroup'));
+
+  // Copy button
+  NovaFieldHandlers.initCopyButtons();
+
+  // Live row arrival simulation
+  document.getElementById('addLiveRow').onclick = () => {
+    const tbody = document.getElementById('txnTableBody');
+    const tr = document.createElement('tr');
+    tr.className = 'row-arriving';
+    tr.innerHTML = `
+      <td data-label="Date" class="primary-cell">Jul 18, 2026</td>
+      <td data-label="Description">Withdrawal — PayPal</td>
+      <td data-label="Reference" class="type-data-md">TXN-2026-0091850</td>
+      <td data-label="Status"><span class="status-pill status-pill-warning"><span class="material-symbols-outlined">schedule</span>Pending Review</span></td>
+      <td data-label="Amount" class="type-data-md">-$120.00</td>
+    `;
+    tbody.insertBefore(tr, tbody.firstChild);
+    setTimeout(() => tr.classList.add('row-settling'), 250);
+  };
+
+  // Charts
+  NovaChart.line(document.getElementById('lineChart'), {
+    points: [
+      { label: 'Mon', value: 1200 }, { label: 'Tue', value: 1850 }, { label: 'Wed', value: 900 },
+      { label: 'Thu', value: 2400 }, { label: 'Fri', value: 2100 }, { label: 'Sat', value: 1600 }, { label: 'Sun', value: 1950 },
+    ],
+    formatValue: (v) => '$' + v.toLocaleString(),
+  });
+  NovaChart.bar(document.getElementById('barChart'), {
+    points: [
+      { label: 'Cleared', value: 84, color: 'var(--color-success)' },
+      { label: 'Flagged', value: 12, color: 'var(--color-danger)' },
+    ],
+    formatValue: (v) => v + ' accounts',
+  });
+</script>
+</body>
+</html>
