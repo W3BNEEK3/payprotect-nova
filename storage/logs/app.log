@@ -1,2 +1,70 @@
 [2026-07-18 12:05:38] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31
 [2026-07-18 12:05:55] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31
+[2026-07-19 15:54:40] ERROR: Call to undefined method App\Middlewares\CsrfMiddleware::field() in C:\programming\coding\payprotect-nova\resources\auth\register.php:8
+[2026-07-19 15:58:10] ERROR: Call to undefined method App\Middlewares\CsrfMiddleware::field() in C:\programming\coding\payprotect-nova\resources\auth\login.php:15
+[2026-07-19 15:58:20] ERROR: Call to undefined method App\Middlewares\CsrfMiddleware::field() in C:\programming\coding\payprotect-nova\resources\auth\login.php:15
+[2026-07-19 15:58:25] ERROR: Call to undefined method App\Middlewares\CsrfMiddleware::field() in C:\programming\coding\payprotect-nova\resources\auth\register.php:8
+[2026-07-19 16:00:29] ERROR: Call to undefined method App\Middlewares\CsrfMiddleware::field() in C:\programming\coding\payprotect-nova\resources\auth\login.php:15
+[2026-07-19 16:34:09] ERROR: require(C:\programming\coding\payprotect-nova\resources\public\blog/../../resources/layouts/public.php): Failed to open stream: No such file or directory in C:\programming\coding\payprotect-nova\resources\public\blog\index.php:46
+[2026-07-19 16:34:09] ERROR: Failed opening required 'C:\programming\coding\payprotect-nova\resources\public\blog/../../resources/layouts/public.php' (include_path='.;C:\php\pear') in C:\programming\coding\payprotect-nova\resources\public\blog\index.php:46
+[2026-07-20 14:27:41] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31
+[2026-07-20 15:32:08] ERROR: Too few arguments to function App\Core\Session::flash(), 1 passed in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php on line 3 and exactly 2 expected in C:\programming\coding\payprotect-nova\app\Core\Session.php:38
+[2026-07-20 15:32:31] ERROR: Too few arguments to function App\Core\Session::flash(), 1 passed in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php on line 3 and exactly 2 expected in C:\programming\coding\payprotect-nova\app\Core\Session.php:38
+[2026-07-20 15:33:30] ERROR: Call to undefined method App\Core\Session::set() in C:\programming\coding\payprotect-nova\app\Controllers\User\VirtualCardController.php:67
+[2026-07-20 16:16:15] ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.full_name' in 'field list' in C:\programming\coding\payprotect-nova\app\Repositories\ComplianceFlagRepository.php:46
+[2026-07-20 16:19:11] ERROR: Call to undefined method App\Models\ComplianceRequirement::all() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\ComplianceController.php:157
+[2026-07-20 17:02:43] ERROR: Call to undefined method App\Repositories\WithdrawalRequestRepository::findById() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\WithdrawalController.php:40
+[2026-07-20 17:02:55] ERROR: Call to undefined method App\Repositories\WithdrawalRequestRepository::findById() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\WithdrawalController.php:40
+[2026-07-20 17:07:19] ERROR: Call to undefined method App\Repositories\WithdrawalRequestRepository::findById() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\WithdrawalController.php:40
+[2026-07-20 17:11:43] ERROR: json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\withdrawals\show.php:4
+[2026-07-20 17:11:43] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\withdrawals\show.php:63
+[2026-07-20 17:15:22] ERROR: json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\withdrawals\show.php:4
+[2026-07-20 17:15:22] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\withdrawals\show.php:63
+[2026-07-20 17:23:33] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\withdraw\form.php:20
+[2026-07-20 17:23:33] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\withdraw\form.php:29
+[2026-07-20 18:25:01] ERROR: Call to undefined method App\Models\ComplianceRequirement::all() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\ComplianceController.php:159
+[2026-07-20 18:30:58] ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'keywords' in 'field list' in C:\programming\coding\payprotect-nova\app\Core\Model.php:35
+[2026-07-20 18:35:36] ERROR: Class "App\Core\Controller" not found in C:\programming\coding\payprotect-nova\app\Controllers\User\SupportController.php:10
+[2026-07-20 18:40:26] ERROR: Call to undefined method App\Controllers\User\SupportController::registerMiddleware() in C:\programming\coding\payprotect-nova\app\Controllers\User\SupportController.php:14
+[2026-07-20 18:41:49] ERROR: Call to undefined method App\Controllers\User\SupportController::registerMiddleware() in C:\programming\coding\payprotect-nova\app\Controllers\User\SupportController.php:14
+[2026-07-20 18:47:52] ERROR: Call to undefined method App\Controllers\User\SupportController::registerMiddleware() in C:\programming\coding\payprotect-nova\app\Controllers\User\SupportController.php:14
+[2026-07-20 18:58:54] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:27
+[2026-07-21 11:52:55] ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.first_name' in 'field list' in C:\programming\coding\payprotect-nova\app\Controllers\Admin\ChatController.php:22
+[2026-07-21 11:53:52] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:27
+[2026-07-21 11:54:01] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:27
+[2026-07-21 11:54:06] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:27
+[2026-07-21 11:54:18] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:27
+[2026-07-21 11:54:46] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:67
+[2026-07-21 11:54:46] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:72
+[2026-07-21 11:54:46] ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in C:\programming\coding\payprotect-nova\app\Core\Model.php:45
+[2026-07-21 11:54:49] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:67
+[2026-07-21 11:54:49] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:72
+[2026-07-21 11:54:49] ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in C:\programming\coding\payprotect-nova\app\Core\Model.php:45
+[2026-07-21 11:54:59] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:67
+[2026-07-21 11:54:59] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:72
+[2026-07-21 11:54:59] ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in C:\programming\coding\payprotect-nova\app\Core\Model.php:45
+[2026-07-21 11:55:23] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:27
+[2026-07-21 11:55:31] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Admin\ChatController.php:31
+[2026-07-21 11:56:54] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:67
+[2026-07-21 11:56:54] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:72
+[2026-07-21 11:56:54] ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in C:\programming\coding\payprotect-nova\app\Core\Model.php:45
+[2026-07-21 11:57:53] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:67
+[2026-07-21 11:57:53] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Api\ChatApiController.php:72
+[2026-07-21 11:57:53] ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null in C:\programming\coding\payprotect-nova\app\Core\Model.php:45
+[2026-07-21 12:16:45] ERROR: Trying to access array offset on null in C:\programming\coding\payprotect-nova\app\Controllers\Admin\ChatController.php:52
+[2026-07-21 12:16:45] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\chat\conversation.php:30
+[2026-07-21 12:16:45] ERROR: Undefined array key "status" in C:\programming\coding\payprotect-nova\resources\admin\chat\conversation.php:34
+[2026-07-21 12:16:45] ERROR: ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\chat\conversation.php:34
+[2026-07-21 12:20:51] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-21 12:22:03] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-21 12:36:34] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-21 13:12:01] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-21 13:24:55] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-21 13:28:49] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-21 14:29:20] ERROR: require_once(C:\programming\coding\payprotect-nova\resources\admin\mail-settings/../../layouts/admin_footer.php): Failed to open stream: No such file or directory in C:\programming\coding\payprotect-nova\resources\admin\mail-settings\index.php:191
+[2026-07-21 14:29:20] ERROR: Failed opening required 'C:\programming\coding\payprotect-nova\resources\admin\mail-settings/../../layouts/admin_footer.php' (include_path='.;C:\php\pear') in C:\programming\coding\payprotect-nova\resources\admin\mail-settings\index.php:191
+[2026-07-21 14:30:58] ERROR: require_once(C:\programming\coding\payprotect-nova\resources\admin\mail-settings/../../layouts/admin_footer.php): Failed to open stream: No such file or directory in C:\programming\coding\payprotect-nova\resources\admin\mail-settings\index.php:191
+[2026-07-21 14:30:58] ERROR: Failed opening required 'C:\programming\coding\payprotect-nova\resources\admin\mail-settings/../../layouts/admin_footer.php' (include_path='.;C:\php\pear') in C:\programming\coding\payprotect-nova\resources\admin\mail-settings\index.php:191
+[2026-07-21 16:30:31] ERROR: Function curl_close() is deprecated since 8.5, as it has no effect since PHP 8.0 in C:\programming\coding\payprotect-nova\app\Providers\Mail\ResendMailProvider.php:29
+[2026-07-21 16:33:37] ERROR: Function curl_close() is deprecated since 8.5, as it has no effect since PHP 8.0 in C:\programming\coding\payprotect-nova\app\Providers\Mail\ResendMailProvider.php:31
+[2026-07-21 16:40:03] ERROR: Function curl_close() is deprecated since 8.5, as it has no effect since PHP 8.0 in C:\programming\coding\payprotect-nova\app\Providers\Mail\ResendMailProvider.php:31

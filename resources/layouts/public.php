@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($pageTitle ?? 'NovaTrust') ?></title>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0f766e">
+<link rel="apple-touch-icon" href="/assets/images/icon-192.png">
 <meta name="description" content="<?= htmlspecialchars($metaDescription ?? '') ?>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,5 +84,6 @@
 <script src="/assets/js/modules/header.js"></script>
 <script src="/assets/js/modules/scroll-reveal.js"></script>
 <?= $extraScripts ?? '' ?>
+<script src="/assets/js/modules/pwa.js"></script>
 </body>
 </html>

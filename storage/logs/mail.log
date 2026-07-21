@@ -1,0 +1,2 @@
+[2026-07-21 16:40:03] Mail Test Error: Resend send failed (HTTP 400): {"statusCode":400,"name":"validation_error","message":"API key is invalid"}
+[2026-07-21 16:43:37] Mail Test Error: Resend send failed (HTTP 400): {"statusCode":400,"name":"validation_error","message":"API key is invalid"}
