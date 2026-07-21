@@ -128,7 +128,7 @@
     els.iconBadge.className = 'modal-icon-badge ' + tierConfig.badgeClass;
     els.icon.textContent = icon;
     els.title.textContent = title;
-    els.body.textContent = body;
+    els.body.innerHTML = body ?? '';
     els.cancelBtn.textContent = cancelLabel;
     els.confirmBtn.textContent = confirmLabel;
     els.confirmBtn.className = 'btn ' + tierConfig.btnClass;

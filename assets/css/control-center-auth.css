@@ -1,0 +1,104 @@
+/**
+ * NovaTrust Control Center — Admin Auth
+ *
+ * Deliberately distinct from the consumer auth pages (resources/layouts/auth.php):
+ * dark Ink background instead of Paper, a technical/restricted-access register
+ * (eyebrow label, shield badge, subtle grid backdrop) rather than the warm,
+ * approachable consumer login. Same design tokens throughout — this is a
+ * different composition of the same system, not a different system.
+ */
+
+.cc-body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.cc-grid-backdrop {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cc-card {
+  position: relative;
+  z-index: 1;
+  background: var(--color-ink-700);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-8);
+  max-width: 400px;
+  width: 100%;
+}
+
+.cc-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: rgba(14, 124, 123, 0.15);
+  border: 1px solid rgba(14, 124, 123, 0.35);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+}
+.cc-badge .material-symbols-outlined {
+  font-size: 26px;
+}
+
+.cc-eyebrow {
+  text-align: center;
+  color: var(--color-teal);
+  font: 600 11px/1 var(--font-data);
+  letter-spacing: 0.14em;
+  margin-bottom: var(--space-6);
+}
+
+.cc-card .auth-title { color: #fff; }
+.cc-card .auth-subtitle { color: var(--slate-300); }
+.cc-card .field-label { color: var(--slate-300); }
+.cc-card .field-hint { color: rgba(255, 255, 255, 0.4); }
+.cc-card .input {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.cc-card .input::placeholder { color: rgba(255, 255, 255, 0.32); }
+.cc-card .input:focus {
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(14, 124, 123, 0.28);
+}
+.cc-card .input.has-error { border-color: var(--color-danger); }
+.cc-card .password-toggle { color: rgba(255, 255, 255, 0.45); }
+.cc-card .password-toggle:hover { color: #fff; }
+.cc-card .auth-error-banner {
+  background: rgba(192, 57, 43, 0.15);
+  border: 1px solid rgba(192, 57, 43, 0.35);
+}
+.cc-card .auth-error-banner .type-body-md { color: #fff; }
+.cc-card .field-error { color: #ff9a8c; }
+
+.cc-footer-link {
+  display: block;
+  text-align: center;
+  margin-top: var(--space-6);
+  font: 400 var(--type-caption-size)/var(--type-caption-lh) var(--font-body);
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+.cc-footer-link:hover { color: rgba(255, 255, 255, 0.7); }
+
+.cc-card .auth-form .btn { width: 100%; }
