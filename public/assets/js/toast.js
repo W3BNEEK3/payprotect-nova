@@ -116,4 +116,16 @@
     warning: (message) => show('warning', message),
     error: (message) => show('error', message),
   };
+
+  // Auto-initialize hardcoded HTML toasts (e.g. from PHP flash messages)
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.toast[data-toast]').forEach(el => {
+      const variant = el.getAttribute('data-toast');
+      const message = el.textContent.trim();
+      el.remove();
+      if (window.NovaToast && window.NovaToast[variant]) {
+        window.NovaToast[variant](message);
+      }
+    });
+  });
 })();

@@ -229,7 +229,8 @@
 }
 
 @media (max-width: 900px) {
-  .site-nav { display: none; }
+  .site-nav,
+  .site-nav-actions { display: none; }
   .mobile-menu-btn { display: block; }
 }
 
