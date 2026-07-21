@@ -36,4 +36,22 @@ class ComplianceFlagRepository extends Repository
 
         return $stmt->execute([$flagId]);
     }
+
+    /**
+     * All open flags across all users — admin compliance queue view.
+     * Joins users table so admin can see name + email alongside the flag.
+     */
+    public function findAllOpen(): array
+    {
+        $stmt = Database::connection()->prepare(
+            "SELECT cf.*, u.fullname, u.email
+             FROM compliance_flags cf
+             JOIN users u ON cf.user_id = u.id
+             WHERE cf.status = 'open'
+             ORDER BY cf.created_at ASC"
+        );
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

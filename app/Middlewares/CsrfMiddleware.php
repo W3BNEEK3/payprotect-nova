@@ -15,8 +15,9 @@ class CsrfMiddleware implements MiddlewareInterface
         }
 
         $token = $request->input('_csrf');
+        $sessionToken = Session::get('_csrf_token');
 
-        if (!$token || $token !== Session::get('_csrf_token')) {
+        if (!$token || !$sessionToken || !hash_equals($sessionToken, $token)) {
             Response::abort(419, 'Invalid or expired security token. Please refresh and try again.');
         }
     }
@@ -28,5 +29,10 @@ class CsrfMiddleware implements MiddlewareInterface
         }
 
         return Session::get('_csrf_token');
+    }
+
+    public static function field(): string
+    {
+        return '<input type="hidden" name="_csrf" value="' . htmlspecialchars(self::token()) . '">';
     }
 }

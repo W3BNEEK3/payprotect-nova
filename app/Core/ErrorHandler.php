@@ -26,7 +26,7 @@ class ErrorHandler
         Logger::error($e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
 
         if (env('APP_DEBUG', 'false') === 'true') {
-            echo '<pre>' . htmlspecialchars($e->getMessage()) . "\n" . htmlspecialchars($e->getTraceAsString()) . '</pre>';
+            require __DIR__ . '/../../resources/errors/debug.php';
             return;
         }
 

@@ -22,11 +22,12 @@ class ResendMailProvider implements MailProviderInterface
                 'Content-Type: application/json',
             ],
             CURLOPT_POSTFIELDS => json_encode($this->buildPayload($to, $subject, $body)),
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_SSL_VERIFYHOST => 0,
         ]);
 
         $response = curl_exec($ch);
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
 
         if ($statusCode >= 200 && $statusCode < 300) {
             return true;

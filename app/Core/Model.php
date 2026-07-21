@@ -4,6 +4,9 @@ namespace App\Core;
 
 use PDO;
 
+/**
+ * @method static array all()
+ */
 abstract class Model
 {
     protected static string $table = '';
@@ -18,6 +21,12 @@ abstract class Model
         $row = $stmt->fetch();
 
         return $row === false ? null : $row;
+    }
+
+    public static function all(): array
+    {
+        $stmt = Database::connection()->query('SELECT * FROM ' . static::$table);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function create(array $data): int

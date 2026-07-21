@@ -26,6 +26,7 @@ class SmtpMailProvider implements MailProviderInterface
             $mail->setFrom($this->config['from_address'], $this->config['from_name'] ?? 'NovaTrust');
             $mail->addAddress($to);
             $mail->Subject = $subject;
+            $mail->isHTML(true);
             $mail->Body = $body;
 
             return $mail->send();
