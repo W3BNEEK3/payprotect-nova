@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= htmlspecialchars($pageTitle ?? 'NovaTrust') ?></title>
+<title><?= htmlspecialchars($pageTitle ?? \App\Core\Site::name()) ?></title>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0f766e">
-<link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+<link rel="apple-touch-icon" href="<?= htmlspecialchars(\App\Core\Site::faviconUrl()) ?>">
+<link rel="icon" href="<?= htmlspecialchars(\App\Core\Site::faviconUrl()) ?>">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel="stylesheet" href="/assets/css/material-symbols.css">
 <link rel="stylesheet" href="/assets/css/design-tokens.css">
 <link rel="stylesheet" href="/assets/css/buttons.css">
 <link rel="stylesheet" href="/assets/css/forms.css">
@@ -159,7 +160,7 @@
       <!-- Left Visual Side -->
       <div class="auth-split-visual">
           <div class="auth-visual-content">
-              <a href="/" class="auth-logo-inverse">NovaTrust</a>
+              <a href="/" class="auth-logo-inverse"><?= htmlspecialchars(\App\Core\Site::name()) ?></a>
               
               <div class="auth-mockup">
                   <div class="auth-mockup-card">
@@ -181,7 +182,7 @@
 
               <div class="auth-visual-text-block">
                   <h2 class="auth-visual-title">Speedy, Easy and Fast</h2>
-                  <p class="auth-visual-text">Join thousands of users who trust NovaTrust to manage their finances securely. Plain-language banking designed for you.</p>
+                  <p class="auth-visual-text">Join thousands of users who trust <?= htmlspecialchars(\App\Core\Site::name()) ?> to manage their finances securely. Plain-language banking designed for you.</p>
               </div>
           </div>
       </div>

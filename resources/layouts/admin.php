@@ -3,10 +3,12 @@ $sidebarItems = [
     ['href' => '/admin/dashboard', 'icon' => 'space_dashboard', 'label' => 'Dashboard'],
     ['href' => '/admin/users', 'icon' => 'group', 'label' => 'Users'],
     ['href' => '/admin/withdrawals', 'icon' => 'sync_alt', 'label' => 'Withdrawals'],
+    ['href' => '/admin/transactions', 'icon' => 'receipt_long', 'label' => 'Transactions'],
     ['href' => '/admin/virtual-cards', 'icon' => 'credit_card', 'label' => 'Virtual Cards'],
     ['href' => '/admin/compliance', 'icon' => 'verified_user', 'label' => 'Compliance'],
     ['href' => '/admin/chat', 'icon' => 'forum', 'label' => 'Live Chat'],
     ['href' => '/admin/mail-settings', 'icon' => 'mail', 'label' => 'Mail Settings'],
+    ['href' => '/admin/site-settings', 'icon' => 'settings', 'label' => 'Site Settings'],
 ];
 
 $bottomNavItems = [
@@ -33,7 +35,7 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/admin/dashboard', PHP_URL_
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel="stylesheet" href="/assets/css/material-symbols.css">
 
 <link rel="stylesheet" href="/assets/css/design-tokens.css">
 <link rel="stylesheet" href="/assets/css/buttons.css">
@@ -93,7 +95,14 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/admin/dashboard', PHP_URL_
     <span class="material-symbols-outlined">close</span>
   </button>
   <ul class="mobile-drawer-links">
-     <!-- Admin secondary links could go here -->
+    <?php foreach ($sidebarItems as $item): ?>
+      <li>
+        <a href="<?= htmlspecialchars($item['href']) ?>" <?= $currentPath === $item['href'] ? 'class="active"' : '' ?>>
+          <span class="material-symbols-outlined"><?= htmlspecialchars($item['icon']) ?></span>
+          <?= htmlspecialchars($item['label']) ?>
+        </a>
+      </li>
+    <?php endforeach; ?>
   </ul>
   <div class="mobile-drawer-actions">
      <form method="POST" action="/control-center/logout" style="margin:0;">

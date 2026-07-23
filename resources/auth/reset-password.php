@@ -1,4 +1,10 @@
-<?php ob_start(); ?>
+<?php
+/**
+ * @var string $token
+ * @var array $errors
+ */
+ob_start(); 
+?>
 <div class="auth-header">
   <h1 class="auth-title">Set New Password</h1>
   <p class="auth-subtitle">Choose a new password for your account.</p>

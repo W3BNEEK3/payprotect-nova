@@ -1,9 +1,16 @@
-<?php ob_start(); ?>
+<?php
+/**
+ * @var bool $success
+ * @var array|null $old
+ * @var array|null $errors
+ */
+ob_start();
+?>
 
 <section class="hero-section" style="min-height: 400px;">
   <div class="hero-inner" style="grid-template-columns: 1fr;">
     <div class="hero-copy" style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <h1 class="hero-load-item">Contact NovaTrust</h1>
+      <h1 class="hero-load-item">Contact <?= htmlspecialchars(\App\Core\Site::name()) ?></h1>
       <p class="hero-subhead hero-load-item" style="max-width: 600px; margin: 0 auto;">
         Get in touch with our team. We're here to help.
       </p>

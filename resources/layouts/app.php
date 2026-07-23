@@ -1,24 +1,28 @@
 <?php
+
 $sidebarItems = [
     ['href' => '/dashboard',      'icon' => 'space_dashboard', 'label' => 'Dashboard'],
-    ['href' => '/withdraw',       'icon' => 'sync_alt',        'label' => 'Withdraw'],
+    ['href' => '/transfer',       'icon' => 'send_money',      'label' => 'Transfer'],
+    ['href' => '/withdraw',       'icon' => 'account_balance_wallet', 'label' => 'Withdraw'],
     ['href' => '/virtual-card',   'icon' => 'credit_card',     'label' => 'Virtual Card'],
     ['href' => '/transactions',   'icon' => 'receipt_long',    'label' => 'Transactions'],
     ['href' => '/notifications',  'icon' => 'notifications',   'label' => 'Notifications'],
+    ['href' => '/profile',        'icon' => 'person',          'label' => 'Profile'],
+    ['href' => '/settings',       'icon' => 'settings',        'label' => 'Settings'],
     ['href' => '/support',        'icon' => 'support_agent',   'label' => 'Support'],
 ];
 
 // Design System 5.2: 4-5 primary destinations in the thumb-reachable bottom bar.
 // Support moves to the top drawer (secondary) once we have 5 primary items.
 $bottomNavItems = [
-    ['href' => '/dashboard',     'icon' => 'space_dashboard', 'label' => 'Home'],
-    ['href' => '/withdraw',      'icon' => 'sync_alt',        'label' => 'Withdraw'],
-    ['href' => '/virtual-card',  'icon' => 'credit_card',     'label' => 'Cards'],
-    ['href' => '/transactions',  'icon' => 'receipt_long',    'label' => 'History'],
-    ['href' => '/notifications', 'icon' => 'notifications',   'label' => 'Alerts'],
+    ['href' => '/dashboard',    'icon' => 'space_dashboard', 'label' => 'Home'],
+    ['href' => '/transfer',     'icon' => 'send_money',      'label' => 'Transfer'],
+    ['href' => '/withdraw',     'icon' => 'account_balance_wallet', 'label' => 'Withdraw'],
+    ['href' => '/virtual-card', 'icon' => 'credit_card',     'label' => 'Cards'],
+    ['href' => '/transactions', 'icon' => 'receipt_long',    'label' => 'History'],
 ];
 
-$sidebarBrand = $sidebarBrand ?? 'NovaTrust';
+$sidebarBrand = $sidebarBrand ?? \App\Core\Site::name();
 $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/dashboard', PHP_URL_PATH);
 ?>
 <!DOCTYPE html>
@@ -26,16 +30,17 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/dashboard', PHP_URL_PATH);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= htmlspecialchars($pageTitle ?? 'NovaTrust') ?></title>
+<title><?= htmlspecialchars($pageTitle ?? \App\Core\Site::name()) ?></title>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0f766e">
-<link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+<link rel="apple-touch-icon" href="<?= htmlspecialchars(\App\Core\Site::faviconUrl()) ?>">
+<link rel="icon" href="<?= htmlspecialchars(\App\Core\Site::faviconUrl()) ?>">
 <meta name="csrf-token" content="<?= \App\Middlewares\CsrfMiddleware::token() ?>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel="stylesheet" href="/assets/css/material-symbols.css">
 
 <link rel="stylesheet" href="/assets/css/design-tokens.css">
 <link rel="stylesheet" href="/assets/css/buttons.css">
@@ -44,6 +49,12 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/dashboard', PHP_URL_PATH);
 <link rel="stylesheet" href="/assets/css/forms.css">
 <link rel="stylesheet" href="/assets/css/public-layout.css">
 <link rel="stylesheet" href="/assets/css/shell.css">
+<link rel="stylesheet" href="/assets/css/dashboard.css">
+<?php if (isset($customCss) && is_array($customCss)): ?>
+  <?php foreach ($customCss as $css): ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars($css) ?>">
+  <?php endforeach; ?>
+<?php endif; ?>
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
   body { margin: 0; padding: 0; background: var(--color-surface); font-family: var(--font-body); color: var(--color-ink); }
@@ -56,7 +67,7 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/dashboard', PHP_URL_PATH);
   
   <div class="shell-main">
     <header class="shell-topbar">
-      <div class="shell-page-title"><?= htmlspecialchars($pageTitle ?? 'NovaTrust') ?></div>
+      <div class="shell-page-title"><?= htmlspecialchars($pageTitle ?? \App\Core\Site::name()) ?></div>
       
       <div class="shell-topbar-right">
         <?php require __DIR__ . '/../components/notifications/_bell.php'; ?>
@@ -84,7 +95,9 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/dashboard', PHP_URL_PATH);
     </header>
 
     <main class="shell-content">
-      <?= $content ?? '' ?>
+      <div style="max-width: 1120px; margin: 0 auto; width: 100%;">
+        <?= $content ?? '' ?>
+      </div>
     </main>
     
     <?php require __DIR__ . '/../components/navigation/_bottom-nav.php'; ?>

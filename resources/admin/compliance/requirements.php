@@ -22,7 +22,7 @@ $flashSuccess = \App\Core\Session::getFlash('success');
                 Manage the catalog of compliance requirement types that can be assigned to users.
             </p>
         </div>
-        <div style="display: flex; gap: var(--space-3);">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
             <form action="/admin/compliance/requirements/kyc/toggle" method="POST" style="margin: 0;">
                 <?= \App\Middlewares\CsrfMiddleware::field() ?>
                 <button type="submit" class="btn <?= $requireKyc ? 'btn-success' : 'btn-secondary' ?>">
@@ -56,7 +56,7 @@ $flashSuccess = \App\Core\Session::getFlash('success');
                     <?php foreach ($requirements as $req): ?>
                         <tr>
                             <td data-label="Type"><strong><?= htmlspecialchars($req['name']) ?></strong></td>
-                            <td data-label="Description"><?= htmlspecialchars($req['description']) ?></td>
+                            <td data-label="Description"><?= htmlspecialchars($req['description'] ?? '') ?></td>
                             <td data-label="Status">
                                 <?php if ($req['is_active']): ?>
                                     <span class="status-pill active">Active</span>
@@ -82,7 +82,7 @@ $flashSuccess = \App\Core\Session::getFlash('success');
 
 <!-- Create Requirement Modal -->
 <div id="createRequirementModal" class="modal-overlay" hidden>
-    <div class="modal-dialog" role="dialog" aria-modal="true" style="max-width: 440px; margin: 10vh auto; padding: var(--space-6);">
+    <div class="modal-dialog" role="dialog" aria-modal="true" style="max-width: 440px; padding: var(--space-6);">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-4);">
             <div style="display: flex; align-items: center; gap: var(--space-3);">
                 <div class="modal-icon-badge tier-primary">

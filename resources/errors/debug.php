@@ -1,3 +1,4 @@
+<?php /** @var \Throwable $e */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

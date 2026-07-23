@@ -6,7 +6,7 @@
       <div class="hero-eyebrow hero-load-item">BLOG</div>
       <h1 class="hero-load-item">Bank Smarter: Tips, News & Security</h1>
       <p class="hero-subhead hero-load-item" style="max-width: 600px; margin: 0 auto;">
-        Welcome to the NovaTrust Blog – your trusted source for online banking tips, security best practices, and financial wellness advice.
+        Welcome to the <?= htmlspecialchars(\App\Core\Site::name()) ?> Blog – your trusted source for online banking tips, security best practices, and financial wellness advice.
       </p>
     </div>
   </div>

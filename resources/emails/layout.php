@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title><?= htmlspecialchars($subject ?? 'NovaTrust Notification') ?></title>
+    <title><?= htmlspecialchars($subject ?? \App\Core\Site::name() . ' Notification') ?></title>
     <style>
         body { background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.5; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
         table { border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; }
@@ -53,7 +53,7 @@
                         <tr>
                             <td class="wrapper">
                                 <div class="header-brand">
-                                    <h2>NovaTrust</h2>
+                                    <h2><?= htmlspecialchars(\App\Core\Site::name()) ?></h2>
                                 </div>
                                 <?= $content ?>
                             </td>
@@ -63,7 +63,7 @@
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td>
-                                    <span class="apple-link">NovaTrust Financial Services. All rights reserved.</span>
+                                    <span class="apple-link"><?= htmlspecialchars(\App\Core\Site::name()) ?>. <?= htmlspecialchars(\App\Core\Site::address()) ?>. All rights reserved.</span>
                                 </td>
                             </tr>
                         </table>

@@ -62,7 +62,7 @@ $flashSuccess = \App\Core\Session::getFlash('success');
                                 <?php endif; ?>
                             </div>
                             <div style="color: var(--slate-600); line-height: 1.5; margin-bottom: 8px;">
-                                <?= htmlspecialchars($item['message']) ?>
+                                <?= htmlspecialchars($item['message'] ?? '') ?>
                             </div>
                             <div style="font-size: 12px; color: var(--slate-500);">
                                 <?= (new \DateTime($item['created_at']))->format('g:i A') ?>
