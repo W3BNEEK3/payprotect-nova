@@ -34,7 +34,7 @@ class ChatApiController extends BaseController
         return $this->json(['status' => 'success', 'conversation' => null]);
     }
 
-    public function messages($id)
+    public function messages(string $id)
     {
         $userId = Session::get('user_id');
         
@@ -95,7 +95,7 @@ class ChatApiController extends BaseController
         return $this->json(['status' => 'success', 'conversation_id' => $conversationId]);
     }
 
-    public function adminMessages($id)
+    public function adminMessages(string $id)
     {
         $conversation = ChatConversation::find($id);
         if (!$conversation) {
@@ -112,7 +112,7 @@ class ChatApiController extends BaseController
         return $this->json(['status' => 'success', 'messages' => $messages, 'conversation_status' => $conversation['status']]);
     }
 
-    public function sendMessageAdmin($id)
+    public function sendMessageAdmin(string $id)
     {
         $adminId = Session::get('admin_id');
         $text = trim($_POST['message'] ?? '');

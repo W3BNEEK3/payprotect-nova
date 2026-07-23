@@ -16,7 +16,7 @@ use App\Models\VirtualCard;
  */
 class SimulatedCardProvider implements CardIssuerInterface
 {
-    public function issue(int $userId, bool $isApproved = false): array
+    public function issue(int $userId, bool $isApproved = false, string $cardStyle = 'visa_geo'): array
     {
         $cardNumber = $this->generateCardNumber();
         $expiry = $this->generateExpiry();
@@ -28,6 +28,7 @@ class SimulatedCardProvider implements CardIssuerInterface
             'cvv_encrypted' => Crypto::encrypt($cvv),
             'expiry_date' => $expiry,
             'status' => 'active',
+            'card_style' => $cardStyle,
             'is_virtual_card_approved' => $isApproved ? 1 : 0, // still requires admin approval if not explicitly approved, FR-4.2
         ]);
 

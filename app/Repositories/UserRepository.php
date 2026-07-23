@@ -26,6 +26,13 @@ class UserRepository extends Repository
         return $row === false ? null : $row;
     }
 
+    public function searchByEmail(string $query): array
+    {
+        $stmt = Database::connection()->prepare('SELECT id, fullname, email FROM users WHERE email LIKE ? ORDER BY email ASC LIMIT 10');
+        $stmt->execute(['%' . $query . '%']);
+        return $stmt->fetchAll();
+    }
+
     /**
      * Powers the compliance auto-flag "new account" check (SRS BR-5). Threshold
      * is read from compliance_settings (see ComplianceSettingsRepository below),
@@ -106,5 +113,24 @@ class UserRepository extends Repository
             'UPDATE users SET balance = balance - ? WHERE id = ?'
         );
         $stmt->execute([$amount, $userId]);
+    }
+
+    public function updateUser(int $userId, array $data): void
+    {
+        // Simple dynamic update
+        $fields = [];
+        $values = [];
+        foreach ($data as $key => $value) {
+            $fields[] = "$key = ?";
+            $values[] = $value;
+        }
+        
+        if (empty($fields)) return;
+
+        $values[] = $userId;
+        $sql = 'UPDATE users SET ' . implode(', ', $fields) . ' WHERE id = ?';
+        
+        $stmt = Database::connection()->prepare($sql);
+        $stmt->execute($values);
     }
 }

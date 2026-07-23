@@ -44,9 +44,12 @@ class ComplianceFlagRepository extends Repository
     public function findAllOpen(): array
     {
         $stmt = Database::connection()->prepare(
-            "SELECT cf.*, u.fullname, u.email
+            "SELECT cf.*, u.fullname, u.email, u.account_number,
+                    ucc.code AS assigned_code, cr.name AS requirement_name
              FROM compliance_flags cf
              JOIN users u ON cf.user_id = u.id
+             LEFT JOIN user_compliance_codes ucc ON ucc.flag_id = cf.id
+             LEFT JOIN compliance_requirements cr ON ucc.compliance_id = cr.id
              WHERE cf.status = 'open'
              ORDER BY cf.created_at ASC"
         );

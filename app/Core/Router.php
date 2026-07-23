@@ -6,17 +6,17 @@ class Router
 {
     private array $routes = [];
 
-    public function get(string $path, $handler, array $middleware = []): void
+    public function get(string $path, mixed $handler, array $middleware = []): void
     {
         $this->add('GET', $path, $handler, $middleware);
     }
 
-    public function post(string $path, $handler, array $middleware = []): void
+    public function post(string $path, mixed $handler, array $middleware = []): void
     {
         $this->add('POST', $path, $handler, $middleware);
     }
 
-    private function add(string $method, string $path, $handler, array $middleware): void
+    private function add(string $method, string $path, mixed $handler, array $middleware): void
     {
         $this->routes[] = [
             'method'     => $method,
@@ -71,7 +71,7 @@ class Router
         return array_combine($paramNames, $matches);
     }
 
-    private function callHandler($handler, array $params): void
+    private function callHandler(mixed $handler, array $params): void
     {
         if (!is_string($handler) && is_callable($handler)) {
             call_user_func_array($handler, $params);

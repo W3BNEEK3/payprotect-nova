@@ -44,9 +44,9 @@ class ComplianceController extends BaseController
     /**
      * Show the assign-code form for a specific flag (FR-5.3).
      */
-    public function showAssignCode(int $flagId): void
+    public function showAssignCode(int $id): void
     {
-        $flag = ComplianceFlag::find($flagId);
+        $flag = ComplianceFlag::find($id);
         if (!$flag || $flag['status'] !== 'open') {
             Session::flash('error', 'Flag not found or already resolved.');
             $this->redirect('/admin/compliance');
@@ -68,9 +68,9 @@ class ComplianceController extends BaseController
      * Assign a compliance code to a flagged user and resolve the flag (FR-5.3).
      * The code is then communicated to the user out-of-band by Support.
      */
-    public function assignCode(int $flagId): void
+    public function assignCode(int $id): void
     {
-        $flag = ComplianceFlag::find($flagId);
+        $flag = ComplianceFlag::find($id);
         if (!$flag || $flag['status'] !== 'open') {
             Session::flash('error', 'Flag not found or already resolved.');
             $this->redirect('/admin/compliance');
@@ -85,7 +85,7 @@ class ComplianceController extends BaseController
 
         if (!$code || !$complianceId) {
             Session::flash('error', 'A code and a requirement type are required.');
-            $this->redirect("/admin/compliance/{$flagId}/assign-code");
+            $this->redirect("/admin/compliance/{$id}/assign-code");
             return;
         }
 
@@ -93,6 +93,7 @@ class ComplianceController extends BaseController
         UserComplianceCode::create([
             'user_id'       => $flag['user_id'],
             'compliance_id' => $complianceId,
+            'flag_id'       => $id,
             'code'          => $code,
             'notes'         => $notes,
             'assigned_by'   => $adminName,
@@ -106,6 +107,11 @@ class ComplianceController extends BaseController
             'user_id' => $flag['user_id'],
             'type'    => 'compliance_code_assigned',
             'message' => 'Your compliance review has been processed. Contact Support to receive your clearance code, then enter it on your account to resume withdrawals.',
+        ]);
+        
+        \App\Services\AuditLogger::log('assign_compliance_code', 'user_compliance_codes', $flag['user_id'], [
+            'compliance_id' => $complianceId,
+            'code' => $code
         ]);
 
         Session::flash('success', "Code assigned. User #{$flag['user_id']} has been notified to contact Support.");
@@ -141,6 +147,10 @@ class ComplianceController extends BaseController
             'user_id' => $userId,
             'type'    => 'compliance_flag_raised',
             'message' => 'Your account has been flagged for compliance review. Your withdrawal access is temporarily paused. Please contact Support to begin the process.',
+        ]);
+        
+        \App\Services\AuditLogger::log('manual_compliance_flag', 'compliance_flags', $userId, [
+            'reason' => $reason
         ]);
 
         Session::flash('success', "User #{$userId} flagged for compliance review.");
@@ -180,6 +190,10 @@ class ComplianceController extends BaseController
             'description' => $description,
             'is_active'   => 1,
         ]);
+        
+        \App\Services\AuditLogger::log('create_compliance_requirement', 'compliance_requirements', null, [
+            'name' => $name
+        ]);
 
         Session::flash('success', "Requirement \"{$name}\" created.");
         $this->redirect('/admin/compliance/requirements');
@@ -201,6 +215,10 @@ class ComplianceController extends BaseController
         $db = \App\Core\Database::connection();
         $stmt = $db->prepare('UPDATE compliance_requirements SET is_active = ? WHERE id = ?');
         $stmt->execute([$newState, $id]);
+        
+        \App\Services\AuditLogger::log('toggle_compliance_requirement', 'compliance_requirements', $id, [
+            'is_active' => $newState
+        ]);
 
         Session::flash('success', 'Requirement updated.');
         $this->redirect('/admin/compliance/requirements');
@@ -214,8 +232,12 @@ class ComplianceController extends BaseController
         $current = $this->settingsRepo->get('require_kyc_for_withdrawal', '0');
         $newState = $current === '1' ? '0' : '1';
         $this->settingsRepo->set('require_kyc_for_withdrawal', $newState);
+        
+        \App\Services\AuditLogger::log('toggle_kyc_requirement', 'compliance_settings', null, [
+            'require_kyc_for_withdrawal' => $newState
+        ]);
 
-        Session::flash('success', 'Global KYC requirement ' . ($newState === '1' ? 'enabled.' : 'disabled.'));
+        Session::flash('success', 'KYC requirement toggled.');
         $this->redirect('/admin/compliance/requirements');
     }
 }

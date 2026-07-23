@@ -15,7 +15,7 @@ class Session
         }
     }
 
-    public static function put(string $key, $value): void
+    public static function put(string $key, mixed $value): void
     {
         $_SESSION[$key] = $value;
     }
@@ -35,7 +35,7 @@ class Session
         unset($_SESSION[$key]);
     }
 
-    public static function flash(string $key, $value): void
+    public static function flash(string $key, mixed $value): void
     {
         $_SESSION['_flash'][$key] = $value;
     }

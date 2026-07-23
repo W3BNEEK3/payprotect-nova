@@ -85,6 +85,11 @@ class WithdrawalController extends BaseController
                 'type' => 'withdrawal_approved',
                 'message' => "Your withdrawal request for {$request['currency']} {$request['amount']} has been approved and completed."
             ]);
+            
+            \App\Services\AuditLogger::log('approve_withdrawal', 'withdrawal_requests', (int)$id, [
+                'amount' => $request['amount'],
+                'currency' => $request['currency']
+            ]);
 
             Database::connection()->commit();
             Session::flash('success', 'Withdrawal request marked as completed.');
@@ -137,6 +142,12 @@ class WithdrawalController extends BaseController
                 'user_id' => $request['user_id'],
                 'type' => 'withdrawal_rejected',
                 'message' => "Your withdrawal request for {$request['currency']} {$request['amount']} was rejected. Reason: {$reason}. The funds have been returned to your balance."
+            ]);
+            
+            \App\Services\AuditLogger::log('reject_withdrawal', 'withdrawal_requests', (int)$id, [
+                'amount' => $request['amount'],
+                'currency' => $request['currency'],
+                'reason' => $reason
             ]);
 
             Database::connection()->commit();

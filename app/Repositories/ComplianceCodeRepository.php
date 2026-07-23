@@ -42,11 +42,26 @@ class ComplianceCodeRepository extends Repository
 
     public function clear(int $codeId): bool
     {
-        $stmt = Database::connection()->prepare(
+        $db = Database::connection();
+        $db->beginTransaction();
+
+        $stmt = $db->prepare(
             'UPDATE user_compliance_codes SET is_cleared = 1, cleared_at = NOW() WHERE id = ?'
         );
+        $result = $stmt->execute([$codeId]);
 
-        return $stmt->execute([$codeId]);
+        // Resolve associated flag
+        $stmt2 = $db->prepare('SELECT flag_id FROM user_compliance_codes WHERE id = ?');
+        $stmt2->execute([$codeId]);
+        $row = $stmt2->fetch();
+
+        if ($row && $row['flag_id']) {
+            $stmt3 = $db->prepare("UPDATE compliance_flags SET status = 'resolved', resolved_at = NOW() WHERE id = ?");
+            $stmt3->execute([$row['flag_id']]);
+        }
+
+        $db->commit();
+        return $result;
     }
 
     public function findForUser(int $userId): array

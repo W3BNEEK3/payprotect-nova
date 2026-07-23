@@ -77,6 +77,10 @@ class MailSettingsController extends BaseController
             $stmt = $db->prepare('INSERT INTO mail_settings (driver, config, is_active) VALUES (?, ?, 1)');
             $stmt->execute([$driver, $jsonConfig]);
         }
+        
+        \App\Services\AuditLogger::log('update_mail_settings', 'mail_settings', null, [
+            'driver' => $driver
+        ]);
 
         Session::flash('settings_success', 'Mail settings updated successfully');
         $this->redirect('/admin/mail-settings');

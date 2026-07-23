@@ -22,6 +22,8 @@ class VirtualCardController extends BaseController
     public function index()
     {
         $userId = Session::get('user_id');
+        $userRepo = new \App\Repositories\UserRepository();
+        $user = $userRepo->find($userId);
 
         $approvedCard = $this->cardRepo->findApprovedForUser($userId);
         $pendingRequest = null;
@@ -29,26 +31,53 @@ class VirtualCardController extends BaseController
 
         if ($approvedCard) {
             $decryptedCard = [
-                'number'  => \App\Helpers\Crypto::decrypt($approvedCard['card_number_encrypted']),
-                'cvv'     => \App\Helpers\Crypto::decrypt($approvedCard['cvv_encrypted']),
-                'expiry'  => $approvedCard['expiry_date'],
-                'balance' => $approvedCard['balance'] ?? '0.00',
+                'number'     => !empty($approvedCard['card_number_encrypted']) ? \App\Helpers\Crypto::decrypt($approvedCard['card_number_encrypted']) : '**** **** **** ****',
+                'cvv'        => !empty($approvedCard['cvv_encrypted']) ? \App\Helpers\Crypto::decrypt($approvedCard['cvv_encrypted']) : '***',
+                'expiry'     => $approvedCard['expiry_date'],
+                'balance'    => $approvedCard['balance'] ?? '0.00',
+                'card_style' => $approvedCard['card_style'] ?? 'visa_geo',
             ];
         } else {
             $pendingRequest = $this->requestRepo->findPendingForUser($userId);
         }
 
         return $this->view('user/virtual-card/index', [
-            'pageTitle'     => 'Virtual Card',
-            'approvedCard'  => $approvedCard,
-            'decryptedCard' => $decryptedCard,
+            'pageTitle'      => 'Virtual Card',
+            'user'           => $user,
+            'approvedCard'   => $approvedCard,
+            'decryptedCard'  => $decryptedCard,
             'pendingRequest' => $pendingRequest,
+        ]);
+    }
+
+    public function create()
+    {
+        $userId = Session::get('user_id');
+
+        $flagRepo = new \App\Repositories\ComplianceFlagRepository();
+        if ($flagRepo->hasOpenFlag($userId)) {
+            Session::flash('error', 'You must complete compliance verification before applying for a card.');
+            return $this->redirect('/compliance');
+        }
+
+        $userRepo = new \App\Repositories\UserRepository();
+        $user = $userRepo->find($userId);
+
+        return $this->view('user/virtual-card/create', [
+            'pageTitle' => 'Order New Card',
+            'user'      => $user,
         ]);
     }
 
     public function request()
     {
         $userId = Session::get('user_id');
+
+        $flagRepo = new \App\Repositories\ComplianceFlagRepository();
+        if ($flagRepo->hasOpenFlag($userId)) {
+            Session::flash('error', 'You must complete compliance verification before applying for a card.');
+            return $this->redirect('/compliance');
+        }
 
         // Guard: no approved card or pending request may already exist
         $approvedCard   = $this->cardRepo->findApprovedForUser($userId);
@@ -59,9 +88,15 @@ class VirtualCardController extends BaseController
             return $this->redirect('/virtual-card');
         }
 
+        // Validate & sanitize the chosen style
+        $allowedStyles = ['visa_geo', 'mc_dark', 'mc_light'];
+        $rawStyle      = $_POST['card_style'] ?? 'visa_geo';
+        $cardStyle     = in_array($rawStyle, $allowedStyles, true) ? $rawStyle : 'visa_geo';
+
         VirtualCardRequest::create([
-            'user_id' => $userId,
-            'status'  => 'pending',
+            'user_id'    => $userId,
+            'status'     => 'pending',
+            'card_style' => $cardStyle,
         ]);
 
         Session::flash('success', 'Your virtual card request has been submitted and is pending review.');

@@ -94,10 +94,10 @@ class ComplianceController extends BaseController
         \App\Models\Notification::create([
             'user_id' => $userId,
             'type'    => 'compliance_cleared',
-            'message' => 'Your compliance review is complete. You may now proceed with withdrawals.',
+            'message' => 'Your compliance review is complete. You may now apply for your virtual card to enable withdrawals.',
         ]);
 
-        Session::flash('success', 'Compliance verified. You can now proceed with withdrawals.');
-        $this->redirect('/dashboard');
+        Session::flash('success', 'Compliance verified. You can now apply for your virtual card.');
+        $this->redirect('/virtual-card/create');
     }
 }

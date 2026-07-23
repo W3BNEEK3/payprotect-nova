@@ -41,16 +41,9 @@ class WithdrawalController extends BaseController
     /**
      * BR-9: Gate checks before showing withdrawal method selection.
      */
-    private function checkGates(int $userId): bool
+    private function checkGates(int $userId, bool $checkCompliance = true): bool
     {
-        // 1. Virtual Card
-        if (!$this->cardRepo->findApprovedForUser($userId)) {
-            Session::flash('error', 'You must have an approved virtual card before withdrawing.');
-            $this->redirect('/virtual-card');
-            return false;
-        }
-
-        // 2. KYC / Upgrade
+        // 1. KYC / Upgrade
         $settingsRepo = new \App\Repositories\ComplianceSettingsRepository();
         $requireKyc = $settingsRepo->get('require_kyc_for_withdrawal', '0') === '1';
         
@@ -60,8 +53,15 @@ class WithdrawalController extends BaseController
             return false;
         }
 
+        // 2. Virtual Card
+        if (!$this->cardRepo->findApprovedForUser($userId)) {
+            Session::flash('error', 'You must apply for and receive a virtual card before withdrawing.');
+            $this->redirect('/virtual-card');
+            return false;
+        }
+
         // 3. Compliance Flags
-        if ($this->flagRepo->hasOpenFlag($userId)) {
+        if ($checkCompliance && $this->flagRepo->hasOpenFlag($userId)) {
             $this->redirect('/compliance');
             return false;
         }
@@ -75,7 +75,7 @@ class WithdrawalController extends BaseController
     public function index()
     {
         $userId = Session::get('user_id');
-        if (!$this->checkGates($userId)) {
+        if (!$this->checkGates($userId, false)) {
             return;
         }
 
@@ -91,7 +91,7 @@ class WithdrawalController extends BaseController
     public function methodForm(string $method)
     {
         $userId = Session::get('user_id');
-        if (!$this->checkGates($userId)) {
+        if (!$this->checkGates($userId, false)) {
             return;
         }
 
@@ -184,7 +184,7 @@ class WithdrawalController extends BaseController
 
         if ($amount > (float)$user['balance']) {
             Session::flash('error', 'Insufficient balance. Your balance may have changed.');
-            Session::remove('withdraw_data');
+            Session::forget('withdraw_data');
             return $this->redirect('/withdraw');
         }
 
@@ -232,7 +232,7 @@ class WithdrawalController extends BaseController
 
             Database::connection()->commit();
             
-            Session::remove('withdraw_data');
+            Session::forget('withdraw_data');
             Session::flash('success', 'Withdrawal request submitted successfully.');
             
             return $this->redirect("/withdraw/success/{$requestId}");

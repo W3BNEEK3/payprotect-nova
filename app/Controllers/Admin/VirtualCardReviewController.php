@@ -38,8 +38,8 @@ class VirtualCardReviewController extends BaseController
             return $this->redirect('/admin/virtual-cards');
         }
 
-        // Issue card, passing true to auto-approve it
-        $this->cardProvider->issue($request['user_id'], true);
+        // Issue card, passing true to auto-approve it, and copy over the requested style
+        $this->cardProvider->issue($request['user_id'], true, $request['card_style'] ?? 'visa_geo');
 
         VirtualCardRequest::update($id, [
             'status' => 'approved',
@@ -52,6 +52,10 @@ class VirtualCardReviewController extends BaseController
             'title' => 'Virtual Card Approved',
             'message' => 'Your virtual card has been approved and is ready to use.',
             'type' => 'card_approved'
+        ]);
+        
+        \App\Services\AuditLogger::log('approve_virtual_card', 'virtual_card_requests', $id, [
+            'user_id' => $request['user_id']
         ]);
 
         Session::flash('success', 'Virtual card request approved.');
@@ -84,6 +88,11 @@ class VirtualCardReviewController extends BaseController
             'title' => 'Virtual Card Request Rejected',
             'message' => 'Your request for a virtual card was rejected: ' . $reason,
             'type' => 'card_rejected'
+        ]);
+        
+        \App\Services\AuditLogger::log('reject_virtual_card', 'virtual_card_requests', $id, [
+            'user_id' => $request['user_id'],
+            'reason' => $reason
         ]);
 
         Session::flash('success', 'Virtual card request rejected.');
