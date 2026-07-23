@@ -205,3 +205,5 @@
 [2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:56
 [2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:60
 [2026-07-23 12:21:01] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:180
+[2026-07-23 13:19:44] ERROR: require(C:\programming\coding\payprotect-nova\resources\public\blog/../../resources/layouts/public.php): Failed to open stream: No such file or directory in C:\programming\coding\payprotect-nova\resources\public\blog\index.php:46
+[2026-07-23 13:19:44] ERROR: Failed opening required 'C:\programming\coding\payprotect-nova\resources\public\blog/../../resources/layouts/public.php' (include_path='.;C:\php\pear') in C:\programming\coding\payprotect-nova\resources\public\blog\index.php:46

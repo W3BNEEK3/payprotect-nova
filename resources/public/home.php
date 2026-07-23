@@ -8,18 +8,17 @@
   </div>
 
   <!-- Floating Elements -->
-  <div class="floating-element float-1"><span class="material-symbols-outlined" style="font-size: 32px;">verified_user</span></div>
-  <div class="floating-element float-2"><span class="material-symbols-outlined" style="font-size: 28px;">account_balance</span></div>
   <div class="floating-element float-3"><span class="material-symbols-outlined" style="font-size: 40px;">language</span></div>
+
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="hero-eyebrow hero-load-item">DIGITAL BANKING, DONE PLAINLY</div>
-      <h1 class="hero-load-item">Banking that behaves the way it says it will.</h1>
-      <p class="hero-subhead hero-load-item">A virtual card, a real account, and withdrawals that don't disappear into a black box for three days. <?= htmlspecialchars(\App\Core\Site::name()) ?> tells you exactly where your money is and why, every time.</p>
+      <div class="hero-eyebrow hero-load-item">PREMIUM DIGITAL BANKING</div>
+      <h1 class="hero-load-item">Experience Next-Generation Financial Control.</h1>
+      <p class="hero-subhead hero-load-item">Take total control of your finances with a premium banking experience. Instantly issue virtual cards, execute secure global transfers, and track your wealth with unparalleled transparency.</p>
       <div class="hero-cta-row hero-load-item">
         <a href="/register" class="btn btn-primary">Open an account</a>
-        <a href="/about" class="btn btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3);">How it works</a>
+        <a href="/about" class="btn btn-secondary" style="color: #fff; border-color: rgba(255,255,255,0.3);">Learn more</a>
       </div>
     </div>
 
@@ -41,39 +40,39 @@
 <!-- 2. The Colorful Bento Grid -->
 <section class="public-section">
   <div class="scroll-reveal" style="text-align:center; max-width: 600px; margin: 0 auto;">
-    <h2 class="type-display-lg" style="margin-bottom: var(--space-3);">Everything you need, beautifully arranged.</h2>
-    <p class="type-body-lg" style="color: var(--slate-700);">Not the marketing version. The real features.</p>
+    <h2 class="type-display-lg" style="margin-bottom: var(--space-3);">Uncompromising Security & Control.</h2>
+    <p class="type-body-lg" style="color: var(--slate-700);">Features thoughtfully designed for your modern financial needs.</p>
   </div>
 
   <div class="bento-grid scroll-reveal">
     <!-- Big Teal Card (Span 2x2) -->
     <div class="bento-card bento-teal">
       <div class="bento-icon"><span class="material-symbols-outlined" style="font-size:40px;">dashboard_customize</span></div>
-      <h3>Total Financial Control</h3>
-      <p>Issued instantly, approved within one business day. See the exact status on your dashboard — not "processing" forever.</p>
+      <h3>Complete Financial Transparency</h3>
+      <p>Track your balance in real-time, view detailed transaction histories, and understand exactly where your money is going with our intuitive and powerful dashboard.</p>
       <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" class="bento-img-absolute" alt="Dashboard">
     </div>
 
     <!-- Wide Warning Card (Span 2x1) -->
     <div class="bento-card bento-warning">
       <div class="bento-icon"><span class="material-symbols-outlined" style="font-size:40px;">credit_card</span></div>
-      <h3>Virtual Cards Instantly</h3>
-      <p>Generate cards for secure online spending in one click.</p>
+      <h3>Instant Virtual Cards</h3>
+      <p>Generate highly secure virtual cards instantly for safe online spending. Cancel or freeze them with a single click for absolute peace of mind.</p>
       <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop" class="bento-img-absolute" style="width: 40%; right: 5%; bottom: -30%;" alt="Credit Card">
     </div>
 
     <!-- Small Danger Card (Span 1x1) -->
     <div class="bento-card bento-danger">
       <div class="bento-icon"><span class="material-symbols-outlined" style="font-size:40px;">sync_alt</span></div>
-      <h3>Transparent Transfers</h3>
-      <p>If a withdrawal needs review, we tell you exactly why.</p>
+      <h3>Seamless Transfers</h3>
+      <p>Send and receive money globally with incredibly competitive rates, transparent tracking, and no hidden fees.</p>
     </div>
 
     <!-- Small Success Card (Span 1x1) -->
     <div class="bento-card bento-success">
       <div class="bento-icon"><span class="material-symbols-outlined" style="font-size:40px;">support_agent</span></div>
-      <h3>24/7 Real Support</h3>
-      <p>Live chat routes to a human. No bot pretending otherwise.</p>
+      <h3>Premium Support</h3>
+      <p>Get 24/7 priority assistance from real banking experts dedicated to solving your problems instantly.</p>
     </div>
   </div>
 </section>
@@ -115,12 +114,11 @@
 <!-- 4. Premium CTA Section -->
 <section class="public-section" style="max-width: 1280px;">
   <div class="cta-premium scroll-reveal">
-    <div class="floating-element float-1"><span class="material-symbols-outlined">lock</span></div>
     <div class="floating-element float-3"><span class="material-symbols-outlined">payments</span></div>
     
-    <h2 class="type-display-lg" style="margin-bottom: var(--space-4);">Ready to know where your money is?</h2>
-    <p class="type-body-lg" style="color:var(--slate-700); margin-bottom: var(--space-8); max-width: 600px; margin-left: auto; margin-right: auto;">Every balance change traces back to something — a credit, a withdrawal, a refund. You can always see which.</p>
-    <a href="/register" class="btn btn-primary" style="padding: 16px 32px; font-size: 18px;">Open an account in minutes</a>
+    <h2 class="type-display-lg" style="margin-bottom: var(--space-4);">Ready to elevate your banking experience?</h2>
+    <p class="type-body-lg" style="color:var(--slate-700); margin-bottom: var(--space-8); max-width: 600px; margin-left: auto; margin-right: auto;">Join thousands of users who have discovered a smarter, safer, and more transparent way to manage their wealth.</p>
+    <a href="/register" class="btn btn-primary" style="padding: 16px 32px; font-size: 18px;">Open account</a>
   </div>
 </section>
 

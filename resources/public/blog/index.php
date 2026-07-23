@@ -43,4 +43,4 @@
 
 <?php
 $content = ob_get_clean();
-require __DIR__ . '/../../resources/layouts/public.php';
+require __DIR__ . '/../../layouts/public.php';
