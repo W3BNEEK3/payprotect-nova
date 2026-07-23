@@ -1,0 +1,714 @@
+/* ===========================================
+   VIRTUAL CARD PAGE — Premium Redesign
+   =========================================== */
+
+/* When embedded inside the dashboard carousel, fill the parent wrapper */
+.hero-card .v-card {
+  width: 100%;
+  height: 190px;
+}
+
+/* ---- 1. SHARED LAYOUT ---- */
+.cards-page-container {
+  padding: var(--space-8) var(--space-6);
+}
+
+/* ---- 2. ACTIVE CARD PAGE: Two-column desktop layout ---- */
+.card-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .card-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    align-items: start;
+    gap: var(--space-8);
+  }
+}
+
+/* Left column: card + quick details */
+.card-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* Right column: panels */
+.card-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- 3. PAGE HEADER ---- */
+.card-page-title {
+  margin-bottom: var(--space-8);
+}
+.card-page-title h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-heading-lg-size);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-1) 0;
+}
+.card-page-title p {
+  color: var(--slate-500);
+  font-size: var(--type-body-md-size);
+  margin: 0;
+}
+
+/* ---- 4. VIRTUAL CARD ITSELF ---- */
+.v-card-scene {
+  perspective: 1200px;
+  width: 320px;
+}
+
+.v-card {
+  width: 320px;
+  height: 200px;
+  border-radius: var(--radius-md);
+  padding: 26px 32px; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  overflow: hidden;
+ /* box-shadow: var(--shadow-lg), 0 32px 64px rgba(0,0,0,0.2);*/
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  transform-style: preserve-3d;
+}
+
+/* Horizontal card orientation — standard bank card aspect ratio */
+.v-card:hover {
+  transform: translateY(-6px) rotateX(2deg);
+  box-shadow: var(--shadow-lg), 0 40px 80px rgba(0,0,0,0.28);
+}
+
+/* ---- 5. GEO PATTERNS (inside the card) ---- */
+.geo-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.v-card-top,
+.v-card-mid,
+.v-card-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.v-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.v-card-mid {
+  display: flex;
+  align-items: center;
+}
+
+.v-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Contactless icon */
+.contactless-icon {
+  font-size: 26px;
+  transform: rotate(90deg);
+  opacity: 0.85;
+}
+
+/* Card number */
+.v-card-number {
+  font-family: var(--font-data);
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Cardholder name */
+.v-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.v-card-expiry {
+  text-align: right;
+}
+.v-card-expiry small {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.65;
+  margin-bottom: 2px;
+}
+.v-card-expiry span {
+  font-family: var(--font-data);
+  font-size: 14px;
+  font-feature-settings: "tnum" 1;
+}
+
+/* ---- 6. BRAND LOGOS ---- */
+.logo-visa {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
+}
+
+.logo-mc {
+  position: relative;
+  width: 44px;
+  height: 28px;
+}
+.mc-red, .mc-yellow {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  top: 3px;
+}
+.mc-red {
+  background: #eb001b;
+  left: 0;
+  z-index: 2;
+}
+.mc-yellow {
+  background: #f79e1b;
+  right: 0;
+  z-index: 1;
+}
+/* Blended overlap area */
+.mc-overlap {
+  position: absolute;
+  width: 12px;
+  height: 22px;
+  top: 3px;
+  left: 16px;
+  background: #ff5f00;
+  z-index: 3;
+  clip-path: ellipse(6px 11px at 50% 50%);
+}
+
+/* ---- 7. CARD THEMES ---- */
+
+/* Visa Geometric - Bold dark with colorful shapes */
+.theme-visa-geo {
+  background: #111827;
+  color: white;
+}
+.geo-visa .shape-1 {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: #d9f92a;
+  border-radius: 50%;
+  top: -80px;
+  right: -60px;
+  opacity: 0.9;
+}
+.geo-visa .shape-2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #6366f1;
+  top: -10px;
+  left: 60px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0.85;
+}
+.geo-visa .shape-3 {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: #f43f5e;
+  bottom: -30px;
+  left: 40px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+.geo-visa .shape-4 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: #fde047;
+  bottom: 20px;
+  right: 80px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Mastercard Dark - Deep navy with circular pattern */
+.theme-mc-dark {
+  background: #0f172a;
+  color: white;
+}
+.geo-mc-dark .mc-circle-1 {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 40px solid rgba(59,130,246,0.15);
+  top: -80px;
+  right: -60px;
+}
+.geo-mc-dark .mc-circle-2 {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 20px solid rgba(37,99,235,0.2);
+  bottom: -50px;
+  left: -30px;
+}
+.geo-mc-dark .mc-dot {
+  position: absolute;
+  background: rgba(99,102,241,0.3);
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  top: -60px;
+  left: 40px;
+}
+
+/* Platinum - Light, elegant */
+.theme-mc-light {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8edf8 100%);
+  color: #0f172a;
+  border: 1px solid rgba(203,213,225,0.8);
+  box-shadow: var(--shadow-lg), 0 32px 64px rgba(0,0,0,0.08);
+}
+.theme-mc-light .contactless-icon,
+.theme-mc-light .v-card-name,
+.theme-mc-light .v-card-number { color: #0f172a; }
+.theme-mc-light .v-card-expiry small { color: #64748b; }
+.theme-mc-light .v-card-expiry span { color: #0f172a; }
+.geo-mc-light .pl-shape-1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(148,163,184,0.25) 0%, transparent 70%);
+  top: -80px;
+  right: -60px;
+}
+.geo-mc-light .pl-dots {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: 70px;
+  background-image:
+    radial-gradient(circle, #94a3b8 2px, transparent 2px);
+  background-size: 14px 14px;
+  opacity: 0.4;
+}
+
+/* ---- 8. QUICK DETAILS PANEL (below card, left col) ---- */
+.card-quick-info {
+  width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--slate-200);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.card-quick-info .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px; /* Increased padding */
+  border-bottom: 1px solid var(--slate-100);
+}
+.card-quick-info .info-row:last-child {
+  border-bottom: none;
+}
+.info-label {
+  font-size: var(--type-caption-size);
+  color: var(--slate-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.info-val {
+  font-family: var(--font-data);
+  font-size: var(--type-body-md-size);
+  font-weight: 600;
+  color: var(--color-ink);
+  font-feature-settings: "tnum" 1;
+}
+
+/* ---- 9. RIGHT COLUMN PANELS ---- */
+.card-panel {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--slate-200);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px; /* Ensure spacing if gap fails */
+}
+.card-panel:last-child {
+  margin-bottom: 0;
+}
+.card-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--slate-100);
+}
+.card-panel-header h3 {
+  font-family: var(--font-display);
+  font-size: var(--type-heading-sm-size);
+  color: var(--color-ink);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.card-panel-header h3 .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--color-teal);
+}
+.card-panel-body {
+  padding: var(--space-5);
+}
+
+/* Billing address row */
+.billing-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--slate-100);
+  font-size: var(--type-body-md-size);
+}
+.billing-row:last-child { border-bottom: none; }
+.billing-row .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--slate-500);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.billing-row-content { flex: 1; }
+.billing-row-label {
+  font-size: var(--type-caption-size);
+  color: var(--slate-500);
+  margin-bottom: 2px;
+}
+.billing-row-val { color: var(--color-ink); font-weight: 500; }
+
+/* Transaction rows */
+.txn-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--slate-100);
+}
+.txn-row:last-child { border-bottom: none; }
+.txn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--color-teal-100);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.txn-icon .material-symbols-outlined { font-size: 18px; }
+.txn-info { flex: 1; }
+.txn-name {
+  font-size: var(--type-body-md-size);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+.txn-date {
+  font-size: var(--type-caption-size);
+  color: var(--slate-500);
+}
+.txn-amount {
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: var(--type-body-md-size);
+  color: var(--color-danger);
+  font-feature-settings: "tnum" 1;
+}
+.txn-amount.credit { color: var(--color-success); }
+
+/* Controls row */
+.card-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+.card-ctrl-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--slate-100);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out);
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  font-size: var(--type-caption-size);
+  font-weight: 500;
+  text-decoration: none;
+}
+.card-ctrl-btn:hover { background: var(--slate-300); }
+.card-ctrl-btn .material-symbols-outlined {
+  font-size: 22px;
+  color: var(--color-teal);
+}
+
+/* ---- 10. CARD STATUS BADGE ---- */
+.card-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--type-caption-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-active {
+  background: var(--color-success-100);
+  color: var(--color-success);
+}
+.badge-pending {
+  background: var(--color-warning-100);
+  color: var(--color-warning);
+}
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---- 11. CHOOSE CARD PAGE: CAROUSEL ---- */
+.create-card-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+}
+.create-card-header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+.create-card-header h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-heading-lg-size);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-2) 0;
+}
+.create-card-header p {
+  color: var(--slate-500);
+  font-size: var(--type-body-md-size);
+  margin: 0;
+}
+
+/* Carousel container */
+.card-carousel-scene {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-10);
+  perspective: 1200px;
+  overflow: hidden; /* prevent side cards from causing page scroll */
+}
+
+.card-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-card {
+  position: absolute;
+  width: 280px;
+  height: 176px;
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.5s var(--ease-out), opacity 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  user-select: none;
+}
+
+/* Position states via JS-set data-pos attribute */
+.carousel-card[data-pos="0"] {
+  /* Center: large and prominent */
+  transform: translateX(0) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 10;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  pointer-events: auto;
+}
+.carousel-card[data-pos="-1"] {
+  /* Left: smaller, rotated */
+  transform: translateX(-200px) scale(0.78) rotateY(12deg);
+  opacity: 0.6;
+  z-index: 5;
+  pointer-events: auto;
+}
+.carousel-card[data-pos="1"] {
+  /* Right: smaller, rotated */
+  transform: translateX(200px) scale(0.78) rotateY(-12deg);
+  opacity: 0.6;
+  z-index: 5;
+  pointer-events: auto;
+}
+.carousel-card[data-pos="-2"],
+.carousel-card[data-pos="2"] {
+  transform: translateX(-300px) scale(0.6) rotateY(18deg);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.carousel-card[data-pos="2"] {
+  transform: translateX(300px) scale(0.6) rotateY(-18deg);
+}
+
+/* Carousel nav dots */
+.carousel-dots {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--slate-300);
+  cursor: pointer;
+  transition: background var(--duration-fast), transform var(--duration-fast);
+  border: none;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: var(--color-ink);
+  transform: scale(1.3);
+}
+
+/* Card info text below carousel */
+.carousel-card-info {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+.carousel-card-info h3 {
+  font-family: var(--font-display);
+  font-size: var(--type-heading-sm-size);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-1) 0;
+}
+.carousel-card-info p {
+  font-size: var(--type-body-md-size);
+  color: var(--slate-500);
+  margin: 0;
+}
+
+/* ---- 12. EMPTY / PENDING STATE ---- */
+.card-empty-state {
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  max-width: 400px;
+  margin: 0 auto;
+}
+.card-empty-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-100);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-6);
+}
+.card-empty-icon .material-symbols-outlined { font-size: 36px; }
+.card-empty-state h2 {
+  font-family: var(--font-display);
+  font-size: var(--type-heading-md-size);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-3) 0;
+}
+.card-empty-state p {
+  color: var(--slate-500);
+  margin: 0 0 var(--space-8) 0;
+  line-height: 1.6;
+}
+
+/* ---- 13. RESPONSIVE TWEAKS ---- */
+@media (max-width: 900px) {
+  .card-layout {
+    grid-template-columns: 1fr;
+  }
+  .card-left-col {
+    align-items: center;
+  }
+  .v-card-scene {
+    width: 320px;
+    height: 200px;
+    transform: scale(0.94);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-page-container { padding: var(--space-4); }
+  
+  /* Scale the whole card scene down, keeps internal layout perfectly intact */
+  .v-card-scene {
+    width: 320px;
+    height: 200px;
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+  
+  /* Remove the width/height overrides for v-card so it stays 320x200 internally */
+  
+  .carousel-card { width: 230px; height: 145px; }
+  .carousel-card[data-pos="-1"] { transform: translateX(-140px) scale(0.75) rotateY(12deg); }
+  .carousel-card[data-pos="1"]  { transform: translateX(140px) scale(0.75) rotateY(-12deg); }
+}
+
+/* ---- 14. UTIL ---- */
+.w-full { width: 100%; display: flex; justify-content: center; }

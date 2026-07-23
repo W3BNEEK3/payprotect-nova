@@ -37,7 +37,16 @@ $router->get('/dashboard', 'DashboardController@index', [AuthMiddleware::class])
 
 // ---- User Virtual Card ----
 $router->get('/virtual-card', 'User\VirtualCardController@index', [AuthMiddleware::class]);
+$router->get('/virtual-card/create', 'User\VirtualCardController@create', [AuthMiddleware::class]);
 $router->post('/virtual-card/request', 'User\VirtualCardController@request', [AuthMiddleware::class, CsrfMiddleware::class]);
+
+// ---- Admin Users ----
+$router->get('/admin/users', 'Admin\UsersController@index', [\App\Middlewares\AdminMiddleware::class]);
+$router->get('/admin/users/search', 'Admin\UsersController@search', [\App\Middlewares\AdminMiddleware::class]);
+$router->get('/admin/users/{id}', 'Admin\UsersController@show', [\App\Middlewares\AdminMiddleware::class]);
+$router->post('/admin/users/{id}', 'Admin\UsersController@update', [\App\Middlewares\AdminMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/users/{id}/balance', 'Admin\UsersController@updateBalance', [\App\Middlewares\AdminMiddleware::class, CsrfMiddleware::class]);
+$router->post('/admin/users/{id}/impersonate', 'Admin\UserImpersonationController@impersonate', [\App\Middlewares\AdminMiddleware::class, CsrfMiddleware::class]);
 
 // ---- Admin Virtual Card ----
 $router->get('/admin/virtual-cards', 'Admin\VirtualCardReviewController@index', [\App\Middlewares\AdminMiddleware::class]);
@@ -47,6 +56,12 @@ $router->post('/admin/virtual-cards/{id}/reject', 'Admin\VirtualCardReviewContro
 // ---- Phase 10: User Compliance Flow ----
 $router->get('/compliance', 'User\ComplianceController@index', [AuthMiddleware::class]);
 $router->post('/compliance/verify', 'User\ComplianceController@verify', [AuthMiddleware::class, CsrfMiddleware::class]);
+
+// ---- Admin Transactions ----
+$router->get('/admin/transactions', 'Admin\TransactionController@index', [\App\Middlewares\AdminMiddleware::class]);
+$router->post('/admin/transactions', 'Admin\TransactionController@store', [\App\Middlewares\AdminMiddleware::class, \App\Middlewares\CsrfMiddleware::class]);
+$router->get('/admin/transactions/{id}/edit', 'Admin\TransactionController@edit', [\App\Middlewares\AdminMiddleware::class]);
+$router->post('/admin/transactions/{id}/edit', 'Admin\TransactionController@update', [\App\Middlewares\AdminMiddleware::class, \App\Middlewares\CsrfMiddleware::class]);
 
 // ---- Phase 10: Admin Compliance Management ----
 $router->get('/admin/compliance', 'Admin\ComplianceController@flags', [\App\Middlewares\AdminMiddleware::class]);
@@ -75,6 +90,22 @@ $router->post('/admin/withdrawals/{id}/reject', 'Admin\WithdrawalController@reje
 $router->get('/notifications', 'User\NotificationController@index', [AuthMiddleware::class]);
 
 // ---- Phase 13: Support ----
+$router->get('/profile', 'User\ProfileController@index', [AuthMiddleware::class]);
+$router->post('/profile/password', 'User\ProfileController@updatePassword', [AuthMiddleware::class]);
+
+$router->get('/settings', 'User\SettingsController@index', [AuthMiddleware::class]);
+$router->post('/settings', 'User\SettingsController@update', [AuthMiddleware::class]);
+
+$router->get('/transactions', 'User\TransactionController@index', [AuthMiddleware::class]);
+
+$router->get('/transfer', 'User\TransferController@index', [AuthMiddleware::class]);
+$router->get('/transfer/internal', 'User\TransferController@internal', [AuthMiddleware::class]);
+$router->post('/transfer/internal', 'User\TransferController@internal', [AuthMiddleware::class]);
+$router->get('/transfer/bank', 'User\TransferController@bank', [AuthMiddleware::class]);
+$router->post('/transfer/bank', 'User\TransferController@bank', [AuthMiddleware::class]);
+$router->get('/transfer/international', 'User\TransferController@international', [AuthMiddleware::class]);
+$router->post('/transfer/international', 'User\TransferController@international', [AuthMiddleware::class]);
+
 $router->get('/support', 'User\SupportController@index', [AuthMiddleware::class]);
 $router->post('/support/ticket', 'User\SupportController@submitTicket', [AuthMiddleware::class, CsrfMiddleware::class]);
 $router->get('/support/chat/widget', 'User\SupportController@widget', [AuthMiddleware::class]);
@@ -90,3 +121,7 @@ $router->get('/admin/chat/bot-rules', 'Admin\ChatController@botRules', [\App\Mid
 $router->get('/admin/mail-settings', 'Admin\MailSettingsController@index', [\App\Middlewares\AdminMiddleware::class]);
 $router->post('/admin/mail-settings', 'Admin\MailSettingsController@update', [\App\Middlewares\AdminMiddleware::class, CsrfMiddleware::class]);
 $router->post('/api/admin/mail-settings/test', 'Admin\MailSettingsController@testMail', [\App\Middlewares\AdminMiddleware::class, CsrfMiddleware::class]);
+
+// ---- Phase 15: Site Settings ----
+$router->get('/admin/site-settings', 'Admin\SiteSettingsController@index', [\App\Middlewares\AdminMiddleware::class]);
+$router->post('/admin/site-settings/update', 'Admin\SiteSettingsController@update', [\App\Middlewares\AdminMiddleware::class, CsrfMiddleware::class]);

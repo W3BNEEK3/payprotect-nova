@@ -68,3 +68,140 @@
 [2026-07-21 16:30:31] ERROR: Function curl_close() is deprecated since 8.5, as it has no effect since PHP 8.0 in C:\programming\coding\payprotect-nova\app\Providers\Mail\ResendMailProvider.php:29
 [2026-07-21 16:33:37] ERROR: Function curl_close() is deprecated since 8.5, as it has no effect since PHP 8.0 in C:\programming\coding\payprotect-nova\app\Providers\Mail\ResendMailProvider.php:31
 [2026-07-21 16:40:03] ERROR: Function curl_close() is deprecated since 8.5, as it has no effect since PHP 8.0 in C:\programming\coding\payprotect-nova\app\Providers\Mail\ResendMailProvider.php:31
+[2026-07-22 13:09:40] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31
+[2026-07-22 13:11:32] ERROR: Undefined array key "id" in C:\programming\coding\payprotect-nova\resources\public\dashboard.php:19
+[2026-07-22 13:11:32] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\public\dashboard.php:19
+[2026-07-22 16:21:55] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\compliance\requirements.php:59
+[2026-07-22 16:21:55] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\compliance\requirements.php:59
+[2026-07-22 16:49:08] ERROR: Call to undefined method App\Repositories\UserRepository::findAll() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\AdminDashboardController.php:23
+[2026-07-22 16:52:10] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\users.php:46
+[2026-07-22 16:54:38] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\users.php:46
+[2026-07-22 17:49:46] ERROR: Call to undefined method App\Core\Session::remove() in C:\programming\coding\payprotect-nova\app\Controllers\User\WithdrawalController.php:235
+[2026-07-22 17:50:17] ERROR: Undefined array key "description" in C:\programming\coding\payprotect-nova\resources\public\dashboard.php:315
+[2026-07-22 17:56:32] ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'notes' in 'field list' in C:\programming\coding\payprotect-nova\app\Core\Model.php:44
+[2026-07-22 18:04:20] ERROR: Call to undefined method App\Core\Database::getInstance() in C:\programming\coding\payprotect-nova\app\Services\AuditLogger.php:14
+[2026-07-22 18:08:55] ERROR: Unknown named parameter $id in C:\programming\coding\payprotect-nova\app\Core\Router.php:96
+[2026-07-22 23:20:01] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:171
+[2026-07-22 23:25:47] ERROR: Database connection failed: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in C:\programming\coding\payprotect-nova\app\Core\Database.php:31
+[2026-07-23 08:45:56] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:176
+[2026-07-23 08:50:41] ERROR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT COALESCE(SUM(amount), 0) AS total
+             FROM transactions
+   ...' at line 2 in C:\programming\coding\payprotect-nova\app\Repositories\TransactionRepository.php:44
+[2026-07-23 08:59:40] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:176
+[2026-07-23 09:31:43] ERROR: explode(): Argument #2 ($string) must be of type string, array given in C:\programming\coding\payprotect-nova\app\Core\Router.php:83
+[2026-07-23 09:41:45] ERROR: explode(): Argument #2 ($string) must be of type string, array given in C:\programming\coding\payprotect-nova\app\Core\Router.php:83
+[2026-07-23 09:41:50] ERROR: explode(): Argument #2 ($string) must be of type string, array given in C:\programming\coding\payprotect-nova\app\Core\Router.php:83
+[2026-07-23 09:41:57] ERROR: explode(): Argument #2 ($string) must be of type string, array given in C:\programming\coding\payprotect-nova\app\Core\Router.php:83
+[2026-07-23 09:42:09] ERROR: explode(): Argument #2 ($string) must be of type string, array given in C:\programming\coding\payprotect-nova\app\Core\Router.php:83
+[2026-07-23 10:02:43] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:180
+[2026-07-23 10:03:03] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:180
+[2026-07-23 10:03:16] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:180
+[2026-07-23 10:03:32] ERROR: Call to undefined method App\Core\Session::set() in C:\programming\coding\payprotect-nova\app\Controllers\Admin\UserImpersonationController.php:32
+[2026-07-23 10:28:44] ERROR: require(C:\programming\coding\payprotect-nova\resources\public\blog/../../resources/layouts/public.php): Failed to open stream: No such file or directory in C:\programming\coding\payprotect-nova\resources\public\blog\index.php:46
+[2026-07-23 10:28:44] ERROR: Failed opening required 'C:\programming\coding\payprotect-nova\resources\public\blog/../../resources/layouts/public.php' (include_path='.;C:\php\pear') in C:\programming\coding\payprotect-nova\resources\public\blog\index.php:46
+[2026-07-23 10:29:44] ERROR: App\Helpers\Crypto::decrypt(): Argument #1 ($binary) must be of type string, null given, called in C:\programming\coding\payprotect-nova\app\Controllers\User\VirtualCardController.php on line 34 in C:\programming\coding\payprotect-nova\app\Helpers\Crypto.php:54
+[2026-07-23 10:30:09] ERROR: Attempt to read property "email" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\ProfileController.php:22
+[2026-07-23 10:30:09] ERROR: App\Repositories\UserRepository::findByEmail(): Argument #1 ($email) must be of type string, null given, called in C:\programming\coding\payprotect-nova\app\Controllers\User\ProfileController.php on line 22 in C:\programming\coding\payprotect-nova\app\Repositories\UserRepository.php:11
+[2026-07-23 10:30:27] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\TransactionController.php:22
+[2026-07-23 10:30:27] ERROR: App\Repositories\TransactionRepository::findByUserId(): Argument #1 ($userId) must be of type int, null given, called in C:\programming\coding\payprotect-nova\app\Controllers\User\TransactionController.php on line 22 in C:\programming\coding\payprotect-nova\app\Repositories\TransactionRepository.php:11
+[2026-07-23 10:30:56] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php:77
+[2026-07-23 10:30:56] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php:108
+[2026-07-23 10:31:08] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php:77
+[2026-07-23 10:31:08] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php:108
+[2026-07-23 10:31:37] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\TransactionController.php:22
+[2026-07-23 10:31:37] ERROR: App\Repositories\TransactionRepository::findByUserId(): Argument #1 ($userId) must be of type int, null given, called in C:\programming\coding\payprotect-nova\app\Controllers\User\TransactionController.php on line 22 in C:\programming\coding\payprotect-nova\app\Repositories\TransactionRepository.php:11
+[2026-07-23 10:31:39] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php:77
+[2026-07-23 10:31:39] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\virtual-card\index.php:108
+[2026-07-23 10:31:40] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:31:40] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:31:41] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:31:41] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:31:41] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:31:41] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:31:41] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:15] ERROR: Attempt to read property "email" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\ProfileController.php:22
+[2026-07-23 10:32:15] ERROR: App\Repositories\UserRepository::findByEmail(): Argument #1 ($email) must be of type string, null given, called in C:\programming\coding\payprotect-nova\app\Controllers\User\ProfileController.php on line 22 in C:\programming\coding\payprotect-nova\app\Repositories\UserRepository.php:11
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:17] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\notifications\index.php:65
+[2026-07-23 10:32:19] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\SettingsController.php:18
+[2026-07-23 10:32:19] ERROR: Attempt to read property "settings_email_notifications" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:35
+[2026-07-23 10:32:19] ERROR: Attempt to read property "settings_dark_mode" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:47
+[2026-07-23 10:32:19] ERROR: Attempt to read property "settings_2fa" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:59
+[2026-07-23 10:32:46] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\SettingsController.php:18
+[2026-07-23 10:32:46] ERROR: Attempt to read property "settings_email_notifications" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:35
+[2026-07-23 10:32:46] ERROR: Attempt to read property "settings_dark_mode" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:47
+[2026-07-23 10:32:46] ERROR: Attempt to read property "settings_2fa" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:59
+[2026-07-23 10:34:20] ERROR: Attempt to read property "firstname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:34:20] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:34:20] ERROR: Attempt to read property "lastname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:34:20] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:34:20] ERROR: Attempt to read property "created_at" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:8
+[2026-07-23 10:34:20] ERROR: strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:8
+[2026-07-23 10:34:20] ERROR: Attempt to read property "is_upgraded" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:9
+[2026-07-23 10:34:20] ERROR: Attempt to read property "firstname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:20
+[2026-07-23 10:34:20] ERROR: Attempt to read property "lastname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:20
+[2026-07-23 10:34:20] ERROR: Attempt to read property "email" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:23
+[2026-07-23 10:34:20] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:23
+[2026-07-23 10:34:21] ERROR: Attempt to read property "is_upgraded" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:27
+[2026-07-23 10:34:21] ERROR: Attempt to read property "is_upgraded" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:27
+[2026-07-23 10:34:21] ERROR: Attempt to read property "phone" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:43
+[2026-07-23 10:34:21] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:43
+[2026-07-23 10:34:21] ERROR: Attempt to read property "country" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:47
+[2026-07-23 10:34:21] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:47
+[2026-07-23 10:35:09] ERROR: Attempt to read property "firstname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:35:09] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:35:09] ERROR: Attempt to read property "lastname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:35:09] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:35:09] ERROR: Attempt to read property "created_at" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:8
+[2026-07-23 10:35:09] ERROR: strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:8
+[2026-07-23 10:35:09] ERROR: Attempt to read property "is_upgraded" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:9
+[2026-07-23 10:35:09] ERROR: Attempt to read property "firstname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:20
+[2026-07-23 10:35:09] ERROR: Attempt to read property "lastname" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:20
+[2026-07-23 10:35:09] ERROR: Attempt to read property "email" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:23
+[2026-07-23 10:35:09] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:23
+[2026-07-23 10:35:09] ERROR: Attempt to read property "is_upgraded" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:27
+[2026-07-23 10:35:09] ERROR: Attempt to read property "is_upgraded" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:27
+[2026-07-23 10:35:09] ERROR: Attempt to read property "phone" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:43
+[2026-07-23 10:35:09] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:43
+[2026-07-23 10:35:09] ERROR: Attempt to read property "country" on array in C:\programming\coding\payprotect-nova\resources\user\profile.php:47
+[2026-07-23 10:35:09] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:47
+[2026-07-23 10:35:14] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\SettingsController.php:18
+[2026-07-23 10:35:14] ERROR: Attempt to read property "settings_email_notifications" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:35
+[2026-07-23 10:35:14] ERROR: Attempt to read property "settings_dark_mode" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:47
+[2026-07-23 10:35:14] ERROR: Attempt to read property "settings_2fa" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:59
+[2026-07-23 10:35:28] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\TransactionController.php:22
+[2026-07-23 10:35:28] ERROR: App\Repositories\TransactionRepository::findByUserId(): Argument #1 ($userId) must be of type int, null given, called in C:\programming\coding\payprotect-nova\app\Controllers\User\TransactionController.php on line 22 in C:\programming\coding\payprotect-nova\app\Repositories\TransactionRepository.php:11
+[2026-07-23 10:35:51] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:35:51] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:35:51] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:43
+[2026-07-23 10:35:51] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:47
+[2026-07-23 10:36:16] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:36:16] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 10:37:34] ERROR: Attempt to read property "id" on null in C:\programming\coding\payprotect-nova\app\Controllers\User\SettingsController.php:18
+[2026-07-23 10:37:34] ERROR: Attempt to read property "settings_email_notifications" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:35
+[2026-07-23 10:37:34] ERROR: Attempt to read property "settings_dark_mode" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:47
+[2026-07-23 10:37:34] ERROR: Attempt to read property "settings_2fa" on false in C:\programming\coding\payprotect-nova\resources\user\settings.php:59
+[2026-07-23 12:00:02] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 12:00:02] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 12:04:34] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 12:04:34] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 12:10:10] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 12:10:10] ERROR: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\profile.php:7
+[2026-07-23 12:14:44] ERROR: strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:42
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:49
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:56
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:60
+[2026-07-23 12:14:44] ERROR: strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:42
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:49
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:56
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:60
+[2026-07-23 12:14:44] ERROR: strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:42
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:49
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:56
+[2026-07-23 12:14:44] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\user\transactions.php:60
+[2026-07-23 12:21:01] ERROR: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\programming\coding\payprotect-nova\resources\admin\transactions\index.php:180
